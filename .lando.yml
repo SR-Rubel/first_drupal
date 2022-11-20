@@ -1,0 +1,4 @@
+name: drupal-lando
+recipe: drupal9
+config:
+  webroot: .
