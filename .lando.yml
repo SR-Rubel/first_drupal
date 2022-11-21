@@ -2,3 +2,11 @@ name: drupal-lando
 recipe: drupal9
 config:
   webroot: .
+services:
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+proxy:
+  phpmyadmin:
+    - phpmyadmin.drupal-lando.lndo.site
