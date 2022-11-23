@@ -5,3 +5,11 @@ mymodule.simplecontent:
     _title: 'Very first controller implementation'
   requirements:
     _permission: 'access content'
+
+mymodule.variablecontent:
+  path: '/mycustompath/{name_1}/{name_2}'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\FirstController::variableContent'
+    _title: 'Very first controller implementation'
+  requirements:
+    _permission: 'access content'

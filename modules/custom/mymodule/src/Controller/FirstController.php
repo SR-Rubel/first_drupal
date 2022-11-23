@@ -16,4 +16,10 @@
       '#markup' => 'hello world! this my first drupal controller',
     ];
   }
+  public function variableContent($name_1,$name_2) {
+    return [
+      '#type' => 'markup',
+      '#markup' => $name_1.' and '.$name_2.' guys we are learning drupal',
+    ];
+  }
  }
