@@ -1,0 +1,19 @@
+<?php
+/**
+ * @file
+ * this file demonstrates how to use hook functions.
+ */
+
+/**
+ * Implements hook_corn().
+ */
+
+function mymodule_corn() {
+ \Drupal::messenger()->addMessage("hi");
+}
+
+function mymodule_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if($form_id == 'node_article_edit_form'){
+    $form['actions']['submit']['#value'] = "save this awsome article!";
+  }
+}
