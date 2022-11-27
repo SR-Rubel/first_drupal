@@ -1,0 +1,6 @@
+rsvplist.simplecontentpage:
+  title: rsvplist
+  description: Link to the simplecontent() method
+  url: "internal:/rsvplistdemo"
+  weight: 11
+  menu_name: main
