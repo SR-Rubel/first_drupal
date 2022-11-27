@@ -9,6 +9,7 @@ namespace Drupal\rsvplist\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Exception;
 
 class RSVPForm extends FormBase
 {
@@ -72,7 +73,45 @@ class RSVPForm extends FormBase
    */
   public function submitForm(array &$form, FormStateInterface $form_state)
   {
-    $submitted_email = $form_state->getValue('email');
-    $this->messenger()->addMessage("Hey this form is working! your just entered " . $submitted_email);
+    // $submitted_email = $form_state->getValue('email');
+    // $this->messenger()->addMessage("Hey this form is working! your just entered " . $submitted_email);
+    try{
+      //initiate variable to save
+      $uid = \Drupal::currentUser()->id();
+
+      //getting full object from user id
+      $full_user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+
+      //get entered values from the form
+      $nid = $form_state->getValue('nid');
+      $email = $form_state->getValue('email');
+      $current_time = \Drupal::time()->getRequestTime();
+
+      //start to build a query builder object $query
+      $query = \Drupal::database()->insert('rsvplist');
+      
+      // Specify the fields that query will insert into
+      $query->fields([
+        'uid',
+        'nid',
+        'mail',
+        'created',
+      ]);
+
+      // set values in the field
+      $query->values([
+        $uid,
+        $nid,
+        $email,
+        $current_time,
+      ]);
+      // executing the query we have build
+      $query->execute();
+      // showing success message
+      $this->messenger()->addMessage("Form submitted successfully");
+    }
+    catch(Exception $e){
+      dd($e->getMessage());
+    }
   }
 }
