@@ -1,0 +1,5 @@
+parameters:
+  twig.config:
+    debug: true
+    cache: false
+    auto_reload: true
