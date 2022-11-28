@@ -1,0 +1,11 @@
+name: welldev
+type: theme
+base theme: stable
+description: 'A custom welldev theme'
+core_version_requirement: ^8 || ^9
+libraries:
+  - fluffiness/global-styling
+regions:
+  header: 'Header'
+  content: 'Content'
+  footer: 'Footer'
