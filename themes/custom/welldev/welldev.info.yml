@@ -4,7 +4,7 @@ base theme: stable
 description: 'A custom welldev theme'
 core_version_requirement: ^8 || ^9
 libraries:
-  - fluffiness/global-styling
+  - welldev/global-styling
 regions:
   header: 'Header'
   content: 'Content'
