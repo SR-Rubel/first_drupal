@@ -1,0 +1,21 @@
+.nav{
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 10rem;
+}
+.nav ul {
+  display: flex;
+}
+.nav ul li{
+  list-style-type: none;
+  padding: 0 10px;
+}
+.nav ul li a{
+  text-decoration: none;
+  line-height: 48px;
+  color: black;
+}
+.nav_brand{
+  background: url(../images/welldev_logo.webp) no-repeat;
+  width: 250px;
+}

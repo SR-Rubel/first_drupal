@@ -1,8 +1,5 @@
-global-styling:
+global-css-and-js:
   css:
-    css/style.css: {}
-    css/print.css: {}
-  js:
-    js/script.js: {}
-  dependencies:
-    - core/jquery
+    theme:
+      css/style.css: {}
+      css/print.css: {}

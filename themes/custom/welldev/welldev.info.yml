@@ -4,7 +4,7 @@ base theme: stable
 description: 'A custom welldev theme'
 core_version_requirement: ^8 || ^9
 libraries:
-  - welldev/global-styling
+  - welldev/global-css-and-js
 regions:
   header: 'Header'
   content: 'Content'
