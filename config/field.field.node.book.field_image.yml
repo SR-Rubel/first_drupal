@@ -1,0 +1,38 @@
+uuid: 8ae163c1-08f0-4043-8308-48ca11ef8a7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - node.type.book
+  module:
+    - image
+id: node.book.field_image
+field_name: field_image
+entity_type: node
+bundle: book
+label: 'book image'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: 'book image'
+    title: ''
+    width: null
+    height: null
+field_type: image
