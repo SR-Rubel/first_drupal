@@ -5,7 +5,9 @@ dependencies:
   config:
     - field.field.node.book.field_author_name
     - field.field.node.book.field_authors
+    - field.field.node.book.field_categories
     - field.field.node.book.field_image
+    - field.field.node.book.field_is
     - field.field.node.book.field_name
     - field.field.node.book.field_rating
     - image.style.thumbnail
@@ -43,6 +45,16 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_categories:
+    type: entity_reference_autocomplete
+    weight: 126
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_image:
     type: image_image
     weight: 122
@@ -50,6 +62,13 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_is:
+    type: boolean_checkbox
+    weight: 127
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_name:
     type: text_textfield

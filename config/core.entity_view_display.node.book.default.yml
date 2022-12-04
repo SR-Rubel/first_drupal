@@ -5,7 +5,9 @@ dependencies:
   config:
     - field.field.node.book.field_author_name
     - field.field.node.book.field_authors
+    - field.field.node.book.field_categories
     - field.field.node.book.field_image
+    - field.field.node.book.field_is
     - field.field.node.book.field_name
     - field.field.node.book.field_rating
     - node.type.book
@@ -33,6 +35,14 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
+  field_categories:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
   field_image:
     type: image
     label: above
@@ -43,6 +53,16 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_is:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_name:
     type: text_default
