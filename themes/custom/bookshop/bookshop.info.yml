@@ -1,6 +1,6 @@
 name: bookshop
 type: theme
-base theme: stable
+base theme: false
 description: 'A custom bookshop theme'
 core_version_requirement: ^8 || ^9
 libraries:
