@@ -1,0 +1,9 @@
+global-css-and-js:
+  css:
+    theme:
+      css/style.css: {}
+      css/print.css: {}
+  js:
+    js/bookshop.js: {}
+  dependencies:
+    - core/jquery
