@@ -1,0 +1,37 @@
+uuid: 4270eb19-a4f9-4817-83f1-7bf91913a005
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.author.field_books
+    - field.field.node.author.field_name
+    - node.type.author
+  module:
+    - text
+    - user
+id: node.author.default
+targetEntityType: node
+bundle: author
+mode: default
+content:
+  field_books:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_name:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

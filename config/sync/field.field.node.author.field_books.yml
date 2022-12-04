@@ -1,0 +1,29 @@
+uuid: 8f4a7897-af14-4d09-b6a2-df3f2eab1bc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_books
+    - node.type.author
+    - node.type.book
+id: node.author.field_books
+field_name: field_books
+entity_type: node
+bundle: author
+label: Books
+description: 'Books of this author'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      book: book
+    sort:
+      field: status
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
