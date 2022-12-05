@@ -58,12 +58,12 @@
   {% endif %}
 {% else %}
   <div{{ attributes }}>
-    {# <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div> #}
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
     {% if multiple %}
       <div>
     {% endif %}
     {% for item in items %}
-      <div{{ item.attributes }}>{{ item.content }}</div>
+      <div{{ item.attributes }} class={{label}}>{{ item.content }}</div>
     {% endfor %}
     {% if multiple %}
       </div>

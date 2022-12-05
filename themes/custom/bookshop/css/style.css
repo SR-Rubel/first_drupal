@@ -1,0 +1,51 @@
+#block-bookshop-content{
+  padding: 0 5rem;
+}
+#block-bookshop-content .top{
+  padding: 0 0 3rem 0;
+}
+#block-bookshop-content .right{
+  padding: 0 2rem;
+}
+#block-bookshop-content .right .wrapper{
+  display: flex;
+}
+#block-bookshop-content .right .name{
+  font-weight: bold;
+  font-size: 2rem;
+}
+#block-bookshop-content .right .name{
+  font-weight: bold;
+  font-size: 2rem;
+}
+#block-bookshop-content .right .by,.rating{
+  padding-left: .5rem;
+}
+#block-bookshop-content .right .by_label, .rating_label{
+  font-weight: bold;
+}
+
+.views-element-container .home-page{
+  display: flex;
+  justify-content: space-around;
+}
+
+.all-books .card{
+  min-height: 27rem;
+  max-height: 27rem;
+}
+.all-books .card .links li{
+ list-style-type: none;
+ text-align: left;
+}
+.all-books .card .links li a{
+  display: block;
+  padding: .5rem;
+  width: 50%;
+  height: 3rem;
+  background-color: rgb(110, 149, 149);
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: .5rem;
+}

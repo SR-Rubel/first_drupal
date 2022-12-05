@@ -88,7 +88,15 @@
     </footer>
   {% endif %}
 
-  <div{{ content_attributes }}>
-    {{ content }}
-  </div>
+
+  <div {{ content_attributes }}>
+    <div>
+      <div class="card" style="width: 18rem; overflow:hidden;">
+        <div class="card-img-top" style="max-width: 18rem; max-height:18rem; overflow:hidden;" >{{content.field_image}}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{content.field_name}}</h5>
+          <div>{{content.links}}</div>
+        </div>
+      </div>
+    <div>
 </article>
