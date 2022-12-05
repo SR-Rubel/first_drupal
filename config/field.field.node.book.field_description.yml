@@ -1,0 +1,36 @@
+uuid: c0e2255a-9a31-4a79-bb46-a5b8599f4dfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.book
+    - paragraphs.paragraphs_type.image_with_text
+    - paragraphs.paragraphs_type.text
+  module:
+    - entity_reference_revisions
+id: node.book.field_description
+field_name: field_description
+entity_type: node
+bundle: book
+label: description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text: text
+      image_with_text: image_with_text
+    negate: 0
+    target_bundles_drag_drop:
+      image_with_text:
+        weight: 3
+        enabled: true
+      text:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

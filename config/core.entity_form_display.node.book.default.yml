@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.book.field_author_name
     - field.field.node.book.field_authors
     - field.field.node.book.field_categories
+    - field.field.node.book.field_description
     - field.field.node.book.field_image
     - field.field.node.book.field_is
     - field.field.node.book.field_name
@@ -14,6 +15,7 @@ dependencies:
     - node.type.book
   module:
     - image
+    - paragraphs
     - path
     - text
 id: node.book.default
@@ -23,13 +25,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_author_name:
     type: text_textfield
-    weight: 123
+    weight: 6
     region: content
     settings:
       size: 60
@@ -37,7 +39,7 @@ content:
     third_party_settings: {  }
   field_authors:
     type: entity_reference_autocomplete
-    weight: 125
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -47,7 +49,7 @@ content:
     third_party_settings: {  }
   field_categories:
     type: entity_reference_autocomplete
-    weight: 126
+    weight: 12
     region: content
     settings:
       match_operator: CONTAINS
@@ -55,9 +57,27 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_description:
+    type: paragraphs
+    weight: 26
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
   field_image:
     type: image_image
-    weight: 122
+    weight: 5
     region: content
     settings:
       progress_indicator: throbber
@@ -65,14 +85,14 @@ content:
     third_party_settings: {  }
   field_is:
     type: boolean_checkbox
-    weight: 127
+    weight: 13
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_name:
     type: text_textfield
-    weight: 121
+    weight: 4
     region: content
     settings:
       size: 60
@@ -80,41 +100,41 @@ content:
     third_party_settings: {  }
   field_rating:
     type: number
-    weight: 124
+    weight: 7
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 2
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 3
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 11
     region: content
     settings:
       size: 60
@@ -122,7 +142,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 0
     region: content
     settings:
       match_operator: CONTAINS

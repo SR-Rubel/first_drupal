@@ -2,6 +2,8 @@ _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
   entity_reference_revisions: 0
+  layout_builder: 0
+  layout_discovery: 0
   paragraphs_type_permissions: 0
   paragraphs: 11
 theme:

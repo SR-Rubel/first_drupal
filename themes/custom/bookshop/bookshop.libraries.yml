@@ -3,6 +3,8 @@ global-css-and-js:
     theme:
       css/style.css: {}
       css/print.css: {}
+    base:
+     //stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css: {}
   js:
     js/bookshop.js: {}
   dependencies:
