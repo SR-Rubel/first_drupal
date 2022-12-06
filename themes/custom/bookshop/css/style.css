@@ -28,6 +28,7 @@
 .views-element-container .home-page{
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .all-books .card{
@@ -48,4 +49,8 @@
   color: white;
   font-size: 1rem;
   border-radius: .5rem;
+}
+#block-bookshop-content .views-exposed-form{
+  width: 100%;
+  display: flex;
 }
