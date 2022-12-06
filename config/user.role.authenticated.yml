@@ -7,7 +7,9 @@ dependencies:
   module:
     - comment
     - contact
+    - field_ui
     - filter
+    - paragraphs
     - search
     - shortcut
     - system
@@ -22,6 +24,7 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'administer paragraph display'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'

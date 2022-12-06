@@ -9,7 +9,6 @@ dependencies:
   module:
     - image
     - layout_builder
-    - layout_discovery
     - text
 third_party_settings:
   layout_builder:
@@ -22,14 +21,14 @@ mode: default
 content:
   field_body:
     type: text_default
-    label: above
+    label: visually_hidden
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
   field_image:
     type: image
-    label: above
+    label: visually_hidden
     settings:
       image_link: ''
       image_style: ''

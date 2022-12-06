@@ -7,7 +7,10 @@ dependencies:
   module:
     - comment
     - contact
+    - field_ui
     - filter
+    - paragraphs
+    - paragraphs_type_permissions
     - search
     - system
 _core:
@@ -20,5 +23,8 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'administer paragraph display'
   - 'search content'
   - 'use text format restricted_html'
+  - 'view paragraph content image_with_text'
+  - 'view paragraph content text'

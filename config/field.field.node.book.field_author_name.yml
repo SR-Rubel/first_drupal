@@ -11,8 +11,8 @@ id: node.book.field_author_name
 field_name: field_author_name
 entity_type: node
 bundle: book
-label: 'author name'
-description: ''
+label: by
+description: 'Author name'
 required: false
 translatable: false
 default_value: {  }
