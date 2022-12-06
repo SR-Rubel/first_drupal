@@ -1,12 +1,5 @@
-uuid: 2c31b1fe-62b2-458d-92df-a7f13f967634
-langcode: en
-status: true
-dependencies: {  }
-id: sync
-label: sync
-description: ''
-weight: 0
-folder: ./config
+_core:
+  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
   admin_toolbar: 0
   admin_toolbar_search: 0
@@ -20,13 +13,13 @@ module:
   comment: 0
   config: 0
   config_filter: 0
-  config_split: 0
   contact: 0
   contextual: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  entity_reference_revisions: 0
   field: 0
   field_ui: 0
   file: 0
@@ -34,6 +27,8 @@ module:
   help: 0
   history: 0
   image: 0
+  layout_builder: 0
+  layout_discovery: 0
   link: 0
   menu_link_content: 0
   menu_ui: 0
@@ -41,6 +36,7 @@ module:
   node: 0
   options: 0
   page_cache: 0
+  paragraphs_type_permissions: 0
   path: 0
   path_alias: 0
   rdf: 0
@@ -55,9 +51,10 @@ module:
   user: 0
   views_ui: 0
   views: 10
+  paragraphs: 11
   standard: 1000
-theme: {  }
-blacklist: {  }
-graylist: {  }
-graylist_dependents: true
-graylist_skip_equal: true
+theme:
+  olivero: 0
+  claro: 0
+  bookshop: 0
+profile: standard

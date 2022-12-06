@@ -1,0 +1,10 @@
+uuid: 8a00ae2c-c7c5-4791-b8e0-bf00c7b50c33
+langcode: en
+status: true
+dependencies: {  }
+id: image_with_text
+label: 'Image with text'
+icon_uuid: null
+icon_default: null
+description: 'Enter image with text'
+behavior_plugins: {  }

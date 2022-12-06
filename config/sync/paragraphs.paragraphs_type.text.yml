@@ -1,0 +1,10 @@
+uuid: 46fe55a4-7be6-4cfe-95ed-dbc568a3024a
+langcode: en
+status: true
+dependencies: {  }
+id: text
+label: Text
+icon_uuid: null
+icon_default: null
+description: 'Enter text here'
+behavior_plugins: {  }
