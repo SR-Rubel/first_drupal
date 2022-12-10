@@ -91,17 +91,15 @@
   <div{{ content_attributes }}>
     <div class="homepage-grid-container">
       <div class="feature">
-
+        {{ drupal_view('books', 'featured_books') }}
       </div>
       <div class="popular">
-
+        {{ drupal_view('books', 'popular_books') }}
       </div>
       <div class="books">
-
+        {{ drupal_view('books', 'all_books') }}
       </div>
     </div>
-    {{ drupal_view('books', 'all_books') }}
-    {{ drupal_view('books', 'author_books') }}
   </div>
 
 </article>

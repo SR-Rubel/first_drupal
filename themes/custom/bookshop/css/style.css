@@ -56,5 +56,19 @@
 }
 .homepage-grid-container
 {
-  
+  display: grid;
+  grid-template-areas:
+  'featured popular'
+  'books books'
+  ;
+  grid-template-columns: 50% 50%;
+}
+.homepage-grid-container .feature{
+  grid-area: featured;
+}
+.homepage-grid-container .popular{
+  grid-area: popular;
+}
+.homepage-grid-container .books{
+  grid-area: books;
 }
