@@ -76,17 +76,23 @@
   grid-template-areas:
   'featured popular'
   'books books'
+  'filtered filtered'
   ;
   grid-template-columns: 50% 50%;
 }
 .homepage-grid-container .feature{
   grid-area: featured;
+  background: var(--secondary-color);
 }
 .homepage-grid-container .popular{
   grid-area: popular;
+  background: var(--secondary-color);
 }
 .homepage-grid-container .books{
   grid-area: books;
+}
+.homepage-grid-container .filtered_books{
+  grid-area: filtered;
 }
 
 /* Contact form styles */
@@ -148,6 +154,7 @@
 .classic-para-item input[type='submit']:hover{
   border: 2px solid rgb(189, 87, 87);
 }
-.about-us-para{
-
+.about-us-para ul li{
+  letter-spacing: .2rem;
+  font-family: 'Jost', sans-serif;;
 }
