@@ -1,0 +1,23 @@
+uuid: eee63217-26b0-47a6-b998-b312b7633c67
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_test
+    - node.type.home_page
+  module:
+    - entity_reference_revisions
+id: node.home_page.field_test
+field_name: field_test
+entity_type: node
+bundle: home_page
+label: test
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings: {  }
+field_type: entity_reference_revisions

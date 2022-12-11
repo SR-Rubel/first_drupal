@@ -1,35 +1,26 @@
-uuid: b4d50d3b-f94f-4b06-b619-2de52a0bca6d
+uuid: 9ca01113-bd39-4896-9315-2c176eee307e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.home_page.body
-    - field.field.node.home_page.field_test
-    - node.type.home_page
+    - field.field.node.footer.field_contact_form
+    - node.type.footer
   module:
     - entity_reference_revisions
-    - text
     - user
-id: node.home_page.default
+id: node.footer.default
 targetEntityType: node
-bundle: home_page
+bundle: footer
 mode: default
 content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 101
-    region: content
-  field_test:
+  field_contact_form:
     type: entity_reference_revisions_entity_view
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 102
+    weight: 101
     region: content
   links:
     settings: {  }

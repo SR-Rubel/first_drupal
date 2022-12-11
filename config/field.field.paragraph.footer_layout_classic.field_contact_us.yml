@@ -1,0 +1,40 @@
+uuid: 842df46a-f8dc-4a05-970d-ccfa415e7ca8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_us
+    - paragraphs.paragraphs_type.about_us
+    - paragraphs.paragraphs_type.footer_layout_classic
+  module:
+    - entity_reference_revisions
+id: paragraph.footer_layout_classic.field_contact_us
+field_name: field_contact_us
+entity_type: paragraph
+bundle: footer_layout_classic
+label: 'contact us'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      about_us: about_us
+    negate: 0
+    target_bundles_drag_drop:
+      about_us:
+        weight: 5
+        enabled: true
+      footer_layout_classic:
+        weight: 6
+        enabled: false
+      image_with_text:
+        weight: 7
+        enabled: false
+      text:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

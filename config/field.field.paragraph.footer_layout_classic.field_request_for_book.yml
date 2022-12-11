@@ -1,0 +1,32 @@
+uuid: 2b04806d-56e9-4e2d-94b0-e6db28ae8053
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_request_for_book
+    - paragraphs.paragraphs_type.footer_layout_classic
+    - webform.webform.contact
+  module:
+    - webform
+id: paragraph.footer_layout_classic.field_request_for_book
+field_name: field_request_for_book
+entity_type: paragraph
+bundle: footer_layout_classic
+label: 'Request for book'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 236f26fe-a3cf-4e1f-a0be-fb8132e1cb36
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

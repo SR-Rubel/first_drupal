@@ -1,0 +1,24 @@
+uuid: 2615159f-c311-48d6-ad1d-b9bc5235b8d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.footer
+    - field.field.block_content.footer.field_add_layout
+  module:
+    - entity_reference_revisions
+id: block_content.footer.default
+targetEntityType: block_content
+bundle: footer
+mode: default
+content:
+  field_add_layout:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

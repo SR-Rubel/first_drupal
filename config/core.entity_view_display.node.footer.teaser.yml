@@ -1,0 +1,22 @@
+uuid: b2869626-0fa1-4e75-ba60-a54158d179a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.footer.field_contact_form
+    - node.type.footer
+  module:
+    - user
+id: node.footer.teaser
+targetEntityType: node
+bundle: footer
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_contact_form: true

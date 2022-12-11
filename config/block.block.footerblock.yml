@@ -1,0 +1,25 @@
+uuid: 9197bbb5-4e1e-4238-b2e3-c5f95fee5f57
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:footer:402a9306-e3ab-4dfb-a6a3-0698b42a85be'
+  module:
+    - block_content
+  theme:
+    - bookshop
+id: footerblock
+theme: bookshop
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:402a9306-e3ab-4dfb-a6a3-0698b42a85be'
+settings:
+  id: 'block_content:402a9306-e3ab-4dfb-a6a3-0698b42a85be'
+  label: 'Footer block'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

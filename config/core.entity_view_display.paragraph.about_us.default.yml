@@ -1,0 +1,30 @@
+uuid: cc3c308c-3054-4bff-bbf8-94135600ccd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.about_us.field_body
+    - field.field.paragraph.about_us.field_title
+    - paragraphs.paragraphs_type.about_us
+  module:
+    - text
+id: paragraph.about_us.default
+targetEntityType: paragraph
+bundle: about_us
+mode: default
+content:
+  field_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

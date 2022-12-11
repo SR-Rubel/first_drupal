@@ -1,0 +1,40 @@
+uuid: 2a99f181-1214-4121-93fe-7d0aa86b5a7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.footer
+    - field.storage.block_content.field_add_layout
+    - paragraphs.paragraphs_type.footer_layout_classic
+  module:
+    - entity_reference_revisions
+id: block_content.footer.field_add_layout
+field_name: field_add_layout
+entity_type: block_content
+bundle: footer
+label: 'add layout'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      footer_layout_classic: footer_layout_classic
+    negate: 0
+    target_bundles_drag_drop:
+      about_us:
+        weight: 5
+        enabled: false
+      footer_layout_classic:
+        weight: 6
+        enabled: true
+      image_with_text:
+        weight: 7
+        enabled: false
+      text:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

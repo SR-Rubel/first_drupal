@@ -1,3 +1,19 @@
+:root {
+  --primary-color: #010712;
+  --secondary-color: #818386;
+  --bg-color: #FCFDFD;
+  --button-color: #3B3636;
+  --h1-color: #3F444C;
+}
+
+[data-theme="dark"] {
+  --primary-color: #FCFDFD;
+  --secondary-color: #818386;
+  --bg-color: #010712;
+  --button-color: #818386;
+  --h1-color: #FCFDFD;
+}
+
 #block-bookshop-content{
   padding: 0 5rem;
 }
@@ -71,4 +87,67 @@
 }
 .homepage-grid-container .books{
   grid-area: books;
+}
+
+/* Contact form styles */
+.contact-form, .contact-form textarea{
+  width: 100%;
+}
+.contact-form form > div{
+  display: flex;
+  flex-direction: column;
+}
+.contact-form .fieldset-wrapper > div{
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form h1, 
+.contact-form label,
+.contact-form button {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+}
+.contact-form input::placeholder, 
+.contact-form  textarea::placeholder {
+  color: var(--primary-color);
+}
+.contact-form input,
+.contact-form textarea {
+  color: var(--primary-color);
+  font-weight: 500;
+  background: var(--bg-color);
+  border: none;
+  border-bottom: 1px solid var(--secondary-color);
+  padding: 0.2rem 0;
+  margin-bottom: .5rem;
+  outline: none;
+}
+.contact-form input[type='submit'] {
+  text-transform: uppercase;
+  font-weight: 300;
+  background: var(--button-color);
+  color: var(--bg-color);
+  margin: 0 20%;
+  height: 2.25rem;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.classic-para-item{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.classic-para-item input[type='submit']{
+  border: 2px solid white;
+  background: transparent;
+}
+.classic-para-item input[type='submit']:hover{
+  border: 2px solid rgb(189, 87, 87);
+}
+.about-us-para{
+
 }

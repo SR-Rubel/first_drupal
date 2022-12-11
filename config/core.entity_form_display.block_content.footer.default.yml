@@ -1,0 +1,41 @@
+uuid: 876f8d02-80f6-4e40-8d9d-6236d31aba51
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.footer
+    - field.field.block_content.footer.field_add_layout
+  module:
+    - paragraphs
+id: block_content.footer.default
+targetEntityType: block_content
+bundle: footer
+mode: default
+content:
+  field_add_layout:
+    type: paragraphs
+    weight: 26
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

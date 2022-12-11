@@ -1,0 +1,10 @@
+uuid: a7fa9ade-4c89-47fa-8beb-8a2b19919f8b
+langcode: en
+status: true
+dependencies: {  }
+id: footer_layout_classic
+label: footer_layout_classic
+icon_uuid: null
+icon_default: null
+description: 'classic footer layout'
+behavior_plugins: {  }

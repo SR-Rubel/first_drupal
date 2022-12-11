@@ -90,16 +90,17 @@
 
   <div{{ content_attributes }}>
     <div class="homepage-grid-container">
-      <div class="feature">
+      <div class="feature bg-info m-1 p-1 rounded-lg">
+        <h2 class="text-center text-white">Featured books<h2>
         {{ drupal_view('books', 'featured_books') }}
       </div>
-      <div class="popular">
+      <div class="popular bg-info m-1 p-1 rounded-lg">
+        <h2 class="text-center text-white">Popular books<h2>
         {{ drupal_view('books', 'popular_books') }}
       </div>
-      <div class="books">
-        {{ drupal_view('books', 'all_books') }}
+      <div class="books my-3">
+        {{ drupal_view('books', 'books_with_filter') }}
       </div>
     </div>
   </div>
-
 </article>
