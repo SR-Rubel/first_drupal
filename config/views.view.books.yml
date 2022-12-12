@@ -183,7 +183,7 @@ display:
         type: full
         options:
           offset: 0
-          items_per_page: 3
+          items_per_page: 4
           total_pages: null
           id: 0
           tags:
@@ -236,6 +236,158 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  books_by_author:
+    id: books_by_author
+    display_title: books_by_author
+    display_plugin: block
+    position: 5
+    display_options:
+      title: books_by_author
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 2
+      sorts:
+        created:
+          id: created
+          table: node_field_revision
+          field: created
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          expose:
+            field_identifier: created
+      arguments:
+        field_authors_target_id:
+          id: field_authors_target_id
+          table: node__field_authors
+          field: field_authors_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: raw
+          default_argument_options:
+            index: 0
+            use_alias: false
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+      defaults:
+        title: false
+        pager: false
+        sorts: false
+        arguments: false
+      display_description: books_by_author
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  books_by_author_page:
+    id: books_by_author_page
+    display_title: books_by_author_page
+    display_plugin: page
+    position: 5
+    display_options:
+      enabled: false
+      title: books_by_author_page
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 2
+      sorts:
+        created:
+          id: created
+          table: node_field_revision
+          field: created
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          expose:
+            field_identifier: created
+      arguments:
+        field_authors_target_id:
+          id: field_authors_target_id
+          table: node__field_authors
+          field: field_authors_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: raw
+          default_argument_options:
+            index: 0
+            use_alias: false
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+      defaults:
+        title: false
+        pager: false
+        sorts: false
+        arguments: false
+      display_description: books_by_author_page
+      display_extenders: {  }
+      path: authors/%author/books
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
