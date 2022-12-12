@@ -3,10 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.author.body
     - field.field.node.author.field_books
+    - field.field.node.author.field_image
     - field.field.node.author.field_name
     - node.type.author
   module:
+    - image
     - text
     - user
 id: node.author.default
@@ -14,24 +17,31 @@ targetEntityType: node
 bundle: author
 mode: default
 content:
-  field_books:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    weight: 103
+    weight: 2
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
     region: content
   field_name:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 1
     region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
-    region: content
-hidden: {  }
+hidden:
+  field_books: true
+  links: true
