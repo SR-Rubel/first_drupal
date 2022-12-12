@@ -26,6 +26,14 @@ targetEntityType: node
 bundle: book
 mode: default
 content:
+  field_authors:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_description:
     type: entity_reference_revisions_entity_view
     label: visually_hidden
@@ -65,7 +73,6 @@ content:
     weight: 3
     region: content
 hidden:
-  field_authors: true
   field_categories: true
   field_is: true
   links: true

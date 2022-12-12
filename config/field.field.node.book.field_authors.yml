@@ -10,7 +10,7 @@ id: node.book.field_authors
 field_name: field_authors
 entity_type: node
 bundle: book
-label: Authors
+label: By
 description: ''
 required: false
 translatable: false
