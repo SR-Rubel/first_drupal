@@ -94,11 +94,9 @@
           {{content.field_image}}
         </div>
         <div class="right">
-          {% for item in content %}
-              {% if (item['#field_name'] != 'field_image') and (item['#field_name'] !='field_description') %}
-                  {{item}}
-              {% endif %}
-          {% endfor %}
+          {{content.field_name}}
+          {{content.field_rating}}
+          {{content.field_authors}}
         </div>
     </div>
     <div class="bottom">
