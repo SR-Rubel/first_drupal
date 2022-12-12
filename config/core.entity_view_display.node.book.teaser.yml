@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.book.field_author_name
     - field.field.node.book.field_authors
     - field.field.node.book.field_categories
     - field.field.node.book.field_description
@@ -54,7 +53,6 @@ content:
     weight: 3
     region: content
 hidden:
-  field_author_name: true
   field_authors: true
   field_description: true
   field_is: true

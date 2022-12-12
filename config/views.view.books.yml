@@ -74,23 +74,10 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: mini
+        type: some
         options:
           offset: 0
           items_per_page: 10
-          total_pages: null
-          id: 0
-          tags:
-            next: ››
-            previous: ‹‹
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
       exposed_form:
         type: basic
         options:
@@ -183,7 +170,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -193,7 +179,40 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 3
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '2'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 2
+      defaults:
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        link_display: false
+        link_url: false
       display_description: ''
+      use_more: false
+      use_more_always: false
+      use_more_text: more
+      link_display: '0'
+      link_url: ''
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -217,7 +236,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -227,6 +245,11 @@ display:
     display_plugin: block
     position: 3
     display_options:
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 10
       filters:
         status:
           id: status
@@ -306,6 +329,7 @@ display:
         groups:
           1: AND
       defaults:
+        pager: false
         filters: false
         filter_groups: false
       display_description: books_with_filter
@@ -316,7 +340,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.permissions
@@ -327,6 +350,11 @@ display:
     display_plugin: block
     position: 4
     display_options:
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 2
       filters:
         status:
           id: status
@@ -396,6 +424,7 @@ display:
         groups:
           1: AND
       defaults:
+        pager: false
         filters: false
         filter_groups: false
       display_description: featured_books
@@ -406,7 +435,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -416,6 +444,11 @@ display:
     display_plugin: block
     position: 5
     display_options:
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 2
       sorts:
         field_rating_value:
           id: field_rating_value
@@ -431,6 +464,7 @@ display:
             field_identifier: ''
           exposed: false
       defaults:
+        pager: false
         sorts: false
       display_description: popular_books
       display_extenders: {  }
@@ -439,7 +473,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

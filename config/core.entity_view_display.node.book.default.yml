@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.book.field_author_name
     - field.field.node.book.field_authors
     - field.field.node.book.field_categories
     - field.field.node.book.field_description
@@ -27,13 +26,6 @@ targetEntityType: node
 bundle: book
 mode: default
 content:
-  field_author_name:
-    type: text_default
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_description:
     type: entity_reference_revisions_entity_view
     label: visually_hidden
