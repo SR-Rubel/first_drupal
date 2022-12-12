@@ -91,11 +91,7 @@
   <div{{ content_attributes }} class="wrapper">
     <div class="top d-flex justify-content-start jumbotron p-2">
         <div class="left">
-          {% for item in content %}
-              {% if item['#field_name'] == 'field_image' %}
-                  {{item}}
-              {% endif %}
-          {% endfor %}
+          {{content.field_image}}
         </div>
         <div class="right">
           {% for item in content %}
@@ -106,11 +102,7 @@
         </div>
     </div>
     <div class="bottom">
-      {% for item in content %}
-          {% if item['#field_name'] == 'field_description' %}
-              {{item}}
-          {% endif %}
-      {% endfor %}
+      {{content.field_description}}
     </div>
   </div>
 </article>
