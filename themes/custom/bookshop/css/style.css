@@ -287,3 +287,24 @@ body {
   font-family: 'Jost', sans-serif;
   ;
 }
+
+/* author profile */
+.profile_image img{
+  width: 80%;
+  height: auto;
+  padding: .5rem;
+  box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.profile_details h2{
+  text-transform: capitalize;
+  background: var(--primary-color);
+  display: block;
+  color: var(--bg-color);
+  padding: 1rem 0 1rem 2rem;
+}
+.profile_details .Bio p{
+  font-size: 1rem;
+  letter-spacing: .1rem;
+}
