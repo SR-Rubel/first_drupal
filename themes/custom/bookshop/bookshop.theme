@@ -1,0 +1,35 @@
+<?php
+
+use Drupal\node\Plugin\views\argument\Nid;
+use Drupal\views\Element\View;
+use Drupal\views\Views;
+
+use function PHPSTORM_META\elementType;
+
+include 'kint.phar';
+/**
+ * @file
+ * implementing hook functions here
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ * Adds body classes if certain regions have content.
+ */
+function bookshop_preprocess_node__author__full(&$variables) {
+
+  $test = Views::getView('books',);
+  $test->setDisplay('books_by_author');
+  $test->setArguments([$variables['node']->nid->value]);
+  $test->execute();
+
+  // calculating average of all books of this author
+  $total_rating = 0;
+  foreach($test->result as $book){
+    $total_rating += $book->_entity->field_rating->value;
+  }
+  $variables['published_books'] = count($test->result);
+  $variables['avg_rating'] = ($total_rating/count($test->result));
+  return $variables;
+}

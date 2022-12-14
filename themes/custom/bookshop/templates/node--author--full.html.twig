@@ -95,7 +95,10 @@
       <h2>{{content.field_name}}</h2>
       <div class="bio">{{content.body}}</div>
       <div class="d-flex">
-        <h3>Published Book: </h3> <span class="align-self-center badge badge-dark count">9</span>
+        <h3>Published Book: </h3> <span class="align-self-center badge badge-dark count">{{published_books}}</span>
+      </div>
+      <div class="d-flex">
+        <h3>Average Rating: </h3> <span class="align-self-center badge badge-dark count">{{avg_rating}}</span>
       </div>
       {# <div class="d-flex">
         <h3>Average Rating: </h3> <span class="align-self-center badge badge-dark count">9</span>

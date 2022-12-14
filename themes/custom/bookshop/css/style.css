@@ -309,3 +309,7 @@ body {
   letter-spacing: .1rem;
   line-height: 2rem;
 }
+.profile_details .count{
+  font-size: 1rem;
+  margin: 0 0 5px 8px;
+}
