@@ -69,7 +69,6 @@
  */
 #}
 <article{{ attributes }}>
-
   {{ title_prefix }}
   {% if label and not page %}
     <h2{{ title_attributes }}>
@@ -95,9 +94,15 @@
     <div class="profile_details col-12 col-md-6" >
       <h2>{{content.field_name}}</h2>
       <div class="bio">{{content.body}}</div>
+      <div class="d-flex">
+        <h3>Published Book: </h3> <span class="align-self-center badge badge-dark count">9</span>
+      </div>
+      {# <div class="d-flex">
+        <h3>Average Rating: </h3> <span class="align-self-center badge badge-dark count">9</span>
+      </div> #}
     </div>
   </div>
-  <div class="author_books">
+  <div class="author_books py-3">
     <h2 class="text-center">Author Books</h2>
     {{drupal_view('books','books_by_author',node.id)}}
   </div>
