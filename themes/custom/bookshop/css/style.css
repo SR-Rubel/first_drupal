@@ -5,6 +5,8 @@
   --bg-color: #FCFDFD;
   --button-color: #3B3636;
   --h1-color: #3F444C;
+  --bg-gray: #767b8d;
+  --button-color-dark: rgb(82 83 83);
 }
 
 body {
@@ -87,7 +89,7 @@ body {
   display: block;
   padding: .5rem;
   width: 50%;
-  background-color: rgb(110, 149, 149);
+  background-color: var(--button-color-dark);
   text-decoration: none;
   color: white;
   font-size: 1rem;
@@ -170,12 +172,12 @@ body {
 
 .homepage-grid-container .feature {
   grid-area: featured;
-  background: var(--secondary-color);
+  background: var(--bg-gray);
 }
 
 .homepage-grid-container .popular {
   grid-area: popular;
-  background: var(--secondary-color);
+  background: var(--bg-gray);
 }
 
 .homepage-grid-container .books {
