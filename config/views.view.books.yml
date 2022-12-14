@@ -290,7 +290,7 @@ display:
         type: full
         options:
           offset: 0
-          items_per_page: 4
+          items_per_page: 5
           total_pages: null
           id: 0
           tags:
@@ -308,12 +308,14 @@ display:
             offset_label: Offset
           quantity: 2
       defaults:
+        use_ajax: false
         pager: false
         use_more: false
         use_more_always: false
         use_more_text: false
         link_display: false
         link_url: false
+      use_ajax: true
       display_description: ''
       use_more: false
       use_more_always: false
@@ -321,6 +323,7 @@ display:
       link_display: '0'
       link_url: ''
       display_extenders: {  }
+      block_description: 'all books view block'
     cache_metadata:
       max-age: -1
       contexts:
@@ -407,9 +410,11 @@ display:
           not: false
       defaults:
         title: false
+        use_ajax: false
         pager: false
         sorts: false
         arguments: false
+      use_ajax: false
       display_description: books_by_author
       display_extenders: {  }
     cache_metadata:
@@ -505,10 +510,26 @@ display:
     position: 3
     display_options:
       pager:
-        type: some
+        type: full
         options:
           offset: 0
-          items_per_page: 10
+          items_per_page: 5
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 3
       filters:
         status:
           id: status
@@ -588,9 +609,11 @@ display:
         groups:
           1: AND
       defaults:
+        use_ajax: false
         pager: false
         filters: false
         filter_groups: false
+      use_ajax: true
       display_description: books_with_filter
       display_extenders: {  }
     cache_metadata:
@@ -599,6 +622,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.permissions

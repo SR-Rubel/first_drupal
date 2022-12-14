@@ -1,0 +1,19 @@
+uuid: 5b70ba3d-3541-439b-a6ae-5ae00e99c749
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.author_page
+  module:
+    - user
+id: node.author_page.default
+targetEntityType: node
+bundle: author_page
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
