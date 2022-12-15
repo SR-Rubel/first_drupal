@@ -1,8 +1,0 @@
-uuid: 2d573fb1-4fa5-48ba-8c9d-0f4571b8f802
-langcode: en
-status: true
-dependencies: {  }
-id: test_block_adding
-label: 'test block adding'
-revision: 0
-description: 'test block adding'

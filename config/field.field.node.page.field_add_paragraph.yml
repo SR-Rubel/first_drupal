@@ -1,0 +1,42 @@
+uuid: 8d8574d9-63cc-4a2c-9ac2-b6a29d9c763d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_add_paragraph
+    - node.type.page
+    - paragraphs.paragraphs_type.image_with_text
+    - paragraphs.paragraphs_type.text
+  module:
+    - entity_reference_revisions
+id: node.page.field_add_paragraph
+field_name: field_add_paragraph
+entity_type: node
+bundle: page
+label: Paragraph
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      image_with_text: image_with_text
+      text: text
+    negate: 0
+    target_bundles_drag_drop:
+      about_us:
+        weight: 5
+        enabled: false
+      footer_layout_classic:
+        weight: 6
+        enabled: false
+      image_with_text:
+        weight: 7
+        enabled: true
+      text:
+        weight: 8
+        enabled: true
+field_type: entity_reference_revisions
