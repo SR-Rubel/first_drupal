@@ -28,6 +28,7 @@ body {
 #block-bookshop-content .right {
   padding: 0 2rem;
 }
+
 #block-bookshop-content .left {
   max-width: 50%;
 }
@@ -291,27 +292,65 @@ body {
 }
 
 /* author profile */
-.profile_image img{
+/* .profile_image img{
   width: 80%;
   height: auto;
   padding: .5rem;
   box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.75);
+} */
+.profile_image > div {
+  display: flex;
+  justify-content: center;
 }
-.profile_details h2{
+.profile_image img {
+  max-width: 80%;
+  height: auto;
+  padding: .5rem;
+  box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.profile_details h2 {
   text-transform: capitalize;
   background: var(--primary-color);
   display: block;
   color: var(--bg-color);
   padding: 1rem 0 1rem 2rem;
 }
-.profile_details .bio p{
+
+.profile_details .bio p {
   font-size: 1rem;
   letter-spacing: .1rem;
   line-height: 2rem;
 }
-.profile_details .count{
+
+.profile_details .count {
   font-size: 1rem;
   margin: 0 0 5px 8px;
+}
+
+/* authors view styles */
+
+.all-authors {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: justify;
+  justify-content: center;
+}
+
+.all-authors .views-row {
+  max-width: 19rem;
+  margin: 0.5rem;
+  border: 2px solid #efefef;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.all-authors .views-row img {
+  height: 20rem;
+  max-width: 18rem;
+  object-fit: cover;
 }

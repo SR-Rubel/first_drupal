@@ -90,15 +90,11 @@
 
   <div{{ content_attributes }}>
     {{ content }}
-    <div>
-      {% for author in authors %}
-        <div>
-          {{author.name}}
-          {{author.image}}
-          {{author.body}}
-        </div>
-      {% endfor %}
+    <div class="all-authors">
+      {{drupal_view('authors','all_authors')}}
+    </div>
+    <div class="author-slider">
+      {% include ('@bookshop/node/slider/slider.html.twig') with {items:authors} %}
     </div>
   </div>
-
 </article>
