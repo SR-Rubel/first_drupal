@@ -172,6 +172,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      css_class: all-authors
       header: {  }
       footer: {  }
       display_extenders: {  }

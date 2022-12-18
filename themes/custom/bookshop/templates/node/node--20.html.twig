@@ -89,12 +89,14 @@
   {% endif %}
 
   <div{{ content_attributes }}>
-    {{ content }}
-    <div class="all-authors">
-      {{drupal_view('authors','all_authors')}}
-    </div>
+    <h1 class='text-center'>Top Authors</h1>
     <div class="author-slider">
       {% include ('@bookshop/node/slider/slider.html.twig') with {items:authors} %}
     </div>
+    <h1 class='text-center'>All Authors</h1>
+    <div class="all-authors">
+      {{drupal_view('authors','all_authors')}}
+    </div>
+    {{ content }}
   </div>
 </article>
