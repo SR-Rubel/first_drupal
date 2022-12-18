@@ -305,7 +305,7 @@ body {
   justify-content: center;
 }
 .profile_image img {
-  max-width: 80%;
+  width: 56%;
   height: auto;
   padding: .5rem;
   box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.75);
@@ -353,4 +353,13 @@ body {
   height: 20rem;
   max-width: 18rem;
   object-fit: cover;
+}
+.navbar-nav #navbarNavDropdown{
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+}
+.navbar-nav:hover #navbarNavDropdown{
+  opacity: 1;
+  background: var(--bg-color);
 }
