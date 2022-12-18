@@ -265,6 +265,7 @@ display:
     display_plugin: feed
     position: 2
     display_options:
+      enabled: false
       pager:
         type: some
         options:
@@ -303,9 +304,13 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      enabled: false
       query:
         type: views_query
         options: {  }
+      defaults:
+        css_class: false
+      css_class: taxonomy-books
       display_extenders: {  }
       path: taxonomy/term/%
     cache_metadata:
