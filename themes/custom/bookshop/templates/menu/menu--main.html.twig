@@ -30,7 +30,7 @@
 
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <div class="navbar collapse navbar-collapse" id="navbarNavDropdown">
     {% if items %}
       {% if menu_level == 0 %}
         <ul class="navbar-nav" {{ attributes }}>

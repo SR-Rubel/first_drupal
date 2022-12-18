@@ -24,6 +24,7 @@
         "drupal/core-recommended": "^9.4",
         "drupal/core-vendor-hardening": "^9.4",
         "drupal/paragraphs": "^1.15",
+        "drupal/taxonomy_menu": "^3.5",
         "drupal/twig_tweak": "^3.2",
         "drupal/webform": "^6.1"
     },
