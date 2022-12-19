@@ -354,12 +354,12 @@ body {
   max-width: 18rem;
   object-fit: cover;
 }
-.navbar-nav #navbarNavDropdown{
+.navbar-nav .nav-item #navbarNavDropdown{
   position: absolute;
   opacity: 0;
   z-index: 1;
 }
-.navbar-nav:hover #navbarNavDropdown{
+.navbar-nav .nav-item:hover > #navbarNavDropdown{
   opacity: 1;
   background: var(--bg-color);
 }
