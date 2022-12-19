@@ -12,7 +12,8 @@ use Drupal\media\Entity\Media;
  *
  * Adds body classes if certain regions have content.
  */
-function bookshop_preprocess_node__author__full(&$variables) {
+function bookshop_preprocess_node__author__full(&$variables)
+{
 
   $test = Views::getView('books',);
   $test->setDisplay('books_by_author');
@@ -21,34 +22,33 @@ function bookshop_preprocess_node__author__full(&$variables) {
 
   // calculating average of all books of this author
   $total_rating = 0;
-  foreach($test->result as $book){
+  foreach ($test->result as $book) {
     $total_rating += $book->_entity->field_rating->value;
   }
   $variables['published_books'] = count($test->result);
-  $variables['avg_rating'] = ($total_rating/count($test->result));
+  $variables['avg_rating'] = ($total_rating / count($test->result));
   return $variables;
 }
 
-function bookshop_preprocess_node__20(&$variables) {
+function bookshop_preprocess_node__20(&$variables)
+{
   // view find and execute
   $test = Views::getView('authors',);
   $test->setDisplay('all_authors');
   $test->execute();
 
-  // $media = Media::loa
   $authors = [];
-  foreach($test->result as $author)
-  {
+  foreach ($test->result as $author) {
     $temp = [];
     $temp['name'] = $author->_entity->field_name->value;
-    if($author->_entity->field_image->entity){
+    if ($author->_entity->field_image->entity) {
 
       $image_url = \Drupal::service('file_url_generator')->generateAbsoluteString($author->_entity->field_image->entity->getFileUri());
       $temp['image'] = $image_url;
       // dd($image_url);
     }
     $temp['body'] = $author->_entity->body->value;
-    array_push($authors,$temp);
+    array_push($authors, $temp);
   }
   // dd($authors);
   $variables['authors'] = $authors;
