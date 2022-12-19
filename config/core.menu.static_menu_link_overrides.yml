@@ -14,20 +14,20 @@ definitions:
     expanded: false
     enabled: true
   'taxonomy_menu__menu_link:taxonomy_menu__menu_link__testmenu__1':
-    expanded: true
-    parent: 'admin:'
-    weight: 0
-    menu_name: main
     enabled: true
+    menu_name: main
+    parent: ''
+    expanded: true
+    weight: -48
   'taxonomy_menu__menu_link:taxonomy_menu__menu_link__testmenu__2':
-    expanded: true
-    parent: 'admin:'
-    weight: 1
-    menu_name: main
     enabled: true
-  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__testmenu__3':
+    menu_name: main
+    parent: ''
+    weight: -47
     expanded: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__testmenu__3':
+    enabled: true
+    menu_name: main
     parent: 'taxonomy_menu.menu_link:taxonomy_menu.menu_link.testmenu.1'
     weight: 0
-    menu_name: main
-    enabled: true
+    expanded: true
