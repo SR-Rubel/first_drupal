@@ -4,9 +4,7 @@ global-css-and-js:
       css/style.css: {}
       css/print.css: {}
     base:
-     //stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css: {}
+     //cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css: {}
   js:
     js/script.js: {}
-    https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js: {}
-  dependencies:
-    - core/jquery
+    //cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js: {}
