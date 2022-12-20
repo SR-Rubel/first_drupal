@@ -4,9 +4,10 @@ const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
-const concat = require('gulp-concat');
+const babel = require('gulp-babel');
 
-function compile() {
+// compiling scss o css
+function compileCSS() {
   return gulp.src('./src/scss/app.scss')
     .pipe(autoprefixer({
       cascade: false
@@ -14,18 +15,34 @@ function compile() {
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./css'));
 };
+// compiling to js
+function compileJS() {
+  return gulp.src('./src/js/app.js')
+    .pipe(babel({
+        presets: ['@babel/env']
+    }))
+    .pipe(gulp.dest('./js'))
+};
+// build js and css
 function buildStyles() {
-  return gulp.src('./src/scss/app.scss')
+  gulp.src('./src/scss/app.scss')
     .pipe(autoprefixer({
       cascade: false
     }))
     .pipe(sass(({outputStyle: 'compressed'})).on('error', sass.logError))
     .pipe(gulp.dest('./css'));
+  gulp.src('./src/js/app.js')
+    .pipe(babel({
+        presets: ['@babel/env']
+    }))
+    .pipe(gulp.dest('./js'))
 };
 
-exports.compile = compile;
+exports.compileJS = compileJS;
+exports.compileCSS = compileCSS;
 exports.buildStyles = buildStyles;
 
-gulp.task('watch', function(){
-  gulp.watch('./src/scss/app.scss', gulp.series('compile'));
+gulp.task('watch', async function(){
+  gulp.watch('./src/scss/app.scss', gulp.series('compileCSS'));
+  gulp.watch('./src/js/app.js', gulp.series('compileJS'));
 });
