@@ -1,0 +1,4 @@
+custom.mymodule:
+  path: '/custom-node'
+  defaults:
+    _controller: 

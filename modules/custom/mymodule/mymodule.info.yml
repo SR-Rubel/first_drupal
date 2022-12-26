@@ -1,0 +1,5 @@
+name: 'module for testing'
+type: module
+core_version_requirement: ^9
+description: 'this module is created for testing purpose'
+package: 'Custom modules from me'
