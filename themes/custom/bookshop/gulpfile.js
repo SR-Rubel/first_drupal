@@ -43,6 +43,8 @@ exports.compileCSS = compileCSS;
 exports.buildStyles = buildStyles;
 
 gulp.task('watch', async function(){
+  compileCSS()
+  compileJS()
   gulp.watch('./src/scss/app.scss', gulp.series('compileCSS'));
   gulp.watch('./src/js/app.js', gulp.series('compileJS'));
 });

@@ -1,4 +1,4 @@
-name: book-shop
+name: api_practice
 recipe: drupal9
 config:
   webroot: .
@@ -9,4 +9,4 @@ services:
       - database
 proxy:
   phpmyadmin:
-    - phpmyadmin.drupal-lando.lndo.site
+    - phpmyadmin.api_practice.lndo.site
