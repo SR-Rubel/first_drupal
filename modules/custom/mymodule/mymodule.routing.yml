@@ -1,4 +1,21 @@
-custom.mymodule:
-  path: '/custom-node'
+custom.mymodule.generate:
+  path: '/generate-books'
   defaults:
-    _controller: 
+    _controller: '\Drupal\mymodule\Controller\MymoduleController::generateBooks'
+    _title: 'a custom node for testing purpose'
+  requirements:
+    _permission: 'access content'
+custom.mymodule.delete:
+  path: '/delete-books'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MymoduleController::deleteBooks'
+    _title: 'a custom node for testing purpose'
+  requirements:
+    _permission: 'access content'
+custom.mymodule.test:
+  path: '/test'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MymoduleController::test'
+    _title: 'a custom node for testing purpose'
+  requirements:
+    _permission: 'access content'
