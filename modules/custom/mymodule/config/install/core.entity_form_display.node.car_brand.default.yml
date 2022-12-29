@@ -1,0 +1,24 @@
+# core.entity_form_display.node.car_brand.default.yml
+langcode: en
+status: true
+dependencies:
+    config:
+        - field.field.node.car_brand.body
+        - node.type.car_brand
+    module:
+        - mymodule
+        - user
+id: node.car_brand.default
+targetEntityType: node
+bundle: car_brand
+mode: default
+content:
+    body:
+        label: hidden
+        type: text_textarea_with_summary
+        weight: 101
+        settings: {  }
+        third_party_settings: {  }
+    links:
+        weight: 100
+hidden: {  }

@@ -1,0 +1,26 @@
+# core.entity_view_display.node.car_brand.teaser.yml
+langcode: en
+status: true
+dependencies:
+    config:
+        - core.entity_view_mode.node.teaser
+        - field.field.node.car_brand.body
+        - node.type.car_brand
+    module:
+        - mymodule
+        - user
+id: node.car_brand.teaser
+targetEntityType: node
+bundle: car_brand
+mode: teaser
+content:
+    body:
+        label: hidden
+        type: text_summary_or_trimmed
+        weight: 101
+        settings:
+            trim_length: 600
+        third_party_settings: {  }
+    links:
+        weight: 100
+hidden: {  }
