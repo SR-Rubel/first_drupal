@@ -1,12 +1,12 @@
-# node.type.car_brand.yml
+# node.type.story_book.yml
 langcode: en
 status: true
 dependencies:
   enforced:
     module:
       - mymodule # This is the name of the module we're using for this example
-name: 'Car Brand'
-type: car_brand
+name: 'Story Book'
+type: story_book
 description: 'Content type that can be used to provide additional information on <em>Car Brands</em>'
 help: ''
 new_revision: false

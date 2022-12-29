@@ -1,16 +1,16 @@
-# field.field.node.car_brand.body.yml
+# field.field.node.story_book.body.yml
 langcode: en
 status: true
 dependencies:
     config:
         - field.storage.node.body
-        - node.type.car_brand
+        - node.type.story_book
     module:
         - text
-id: node.car_brand.body
+id: node.story_book.body
 field_name: body
 entity_type: node
-bundle: car_brand
+bundle: story_book
 label: Body
 description: 'More specific information about the car brand.'
 required: false

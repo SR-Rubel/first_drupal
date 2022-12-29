@@ -1,21 +1,21 @@
-# core.entity_view_display.node.car_brand.default.yml
+# core.entity_form_display.node.story_book.default.yml
 langcode: en
 status: true
 dependencies:
     config:
-        - field.field.node.car_brand.body
-        - node.type.car_brand
+        - field.field.node.story_book.body
+        - node.type.story_book
     module:
         - mymodule
         - user
-id: node.car_brand.default
+id: node.story_book.default
 targetEntityType: node
-bundle: car_brand
+bundle: story_book
 mode: default
 content:
     body:
         label: hidden
-        type: text_default
+        type: text_textarea_with_summary
         weight: 101
         settings: {  }
         third_party_settings: {  }
