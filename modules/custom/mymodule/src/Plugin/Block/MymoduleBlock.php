@@ -10,6 +10,7 @@ namespace Drupal\mymodule\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Security\TrustedCallbackInterface;
 
 /**
  * provides a block with simple text
@@ -18,7 +19,7 @@ use Drupal\Core\Form\FormStateInterface;
  *  admin_label = @Translation("test block")
  * )
  */
-class MymoduleBlock extends BlockBase {
+class MymoduleBlock extends BlockBase implements TrustedCallbackInterface {
   /**
    * {@inherit}
    */
@@ -35,17 +36,32 @@ class MymoduleBlock extends BlockBase {
     //     'max-age' => Cache::PERMANENT,
     //   ]
     // ];
-    $output = '<h1>Some random string: '.rand(1,10000).'</h1>';
-    return [
-      '#markup' => $output,
-      '#display_id' => 'all_books',
-      '#cache' => [
-        'tags' => [
-          'node:16',
-        ],
-        'max-age' => 10,
-      ]
+    // $output = '<h1>Some random string: '.rand(1,10000).'</h1>';
+    $build['normal'] = [
+      '#markup' => '<p>this is simple text</p>',
+      // '#cache' => [
+      //   'tags' => [
+      //     'node:16',
+      //   ],
+      //   'max-age' => 0,
+      // ]
     ];
+    $build['complex'] =[
+      '#lazy_builder' => [static::class.'::lazyBuilderComplexData',[]],
+      '#create_placeholder' => TRUE,
+    ];
+    // $build['complex'] = self::lazyBuilderComplexData();
+    return $build;
+  }
+  public static function lazyBuilderComplexData(){
+    sleep(5);
+    return [
+      '#markup' => 'this text takes time to load',
+    ];
+  }
+  public static function trustedCallbacks()
+  {
+    return ['lazyBuilderComplexData'];
   }
   public function blockForm($form, FormStateInterface $form_state): array {
     $form = parent::blockForm($form,$form_state);
