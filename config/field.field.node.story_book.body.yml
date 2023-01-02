@@ -1,0 +1,25 @@
+uuid: d3b9acde-a381-42ed-97ff-f947d2037213
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.story_book
+  module:
+    - text
+_core:
+  default_config_hash: 2O_mok0H2j7D4M67xNIHJxawF7qrtfM2e9J0P8mzdoI
+id: node.story_book.body
+field_name: body
+entity_type: node
+bundle: story_book
+label: Body
+description: 'More specific information about the car brand.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

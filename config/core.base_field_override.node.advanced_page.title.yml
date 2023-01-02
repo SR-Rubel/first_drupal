@@ -1,0 +1,18 @@
+uuid: 759bad94-083a-4c4a-9b1b-f33dbe33bb51
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.advanced_page
+id: node.advanced_page.title
+field_name: title
+entity_type: node
+bundle: advanced_page
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

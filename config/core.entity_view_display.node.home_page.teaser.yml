@@ -30,3 +30,4 @@ content:
     region: content
 hidden:
   field_test: true
+  langcode: true

@@ -8,8 +8,10 @@
 namespace Drupal\mymodule\Controller;
 
 use Drupal;
-use Drupal\Core\Controller\ControllerBase;
+use Entity;
 use Drupal\node\Entity\Node;
+use Drupal\Core\Language\Language;
+use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\Response;
 
 class MymoduleController extends ControllerBase
@@ -47,20 +49,26 @@ class MymoduleController extends ControllerBase
   }
   public function test(){
 
-    $entity = \Drupal::entityTypeManager()->getStorage('node')->load(15);
-    dd(\Drupal::entityTypeManager()->getAccessControlHandler('node'));
-    dd($entity->access('book'));
+    // $entity = \Drupal::entityTypeManager()->getStorage('node')->load(15);
+    // dd(\Drupal::entityTypeManager()->getAccessControlHandler('node'));
+    // dd($entity->access('book'));
 
 
-    $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
-    $ids = $nodeStorage->getQuery()
-    ->condition('status', 1)
-    ->condition('type', 'book') // type = bundle id (machine name)
-    ->condition('nid','<',5)
-    //->sort('created', 'ASC') // sorted by time of creation
-    ->pager(15) // limit 15 items
-    ->execute();
-    dd($ids);
+    // $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
+    // $ids = $nodeStorage->getQuery()
+    // ->condition('status', 1)
+    // ->condition('type', 'book') // type = bundle id (machine name)
+    // ->condition('nid','<',5)
+    // //->sort('created', 'ASC') // sorted by time of creation
+    // ->pager(15) // limit 15 items
+    // ->execute();
+    // dd($ids);
+
+    $entity = \Drupal::entityTypeManager()->getStorage('node')->load(17);
+    $langcode = Drupal::languageManager()->getLanguage(Language::TYPE_CONTENT);
+    $context = array('operation' => 'node_tokens');
+    $translation = \Drupal::service($entity,'en',$context);
+    dd($translation);
   }
   public function createNodeType(string $type){
     // getting all entity of distinct type (author)

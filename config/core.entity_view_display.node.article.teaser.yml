@@ -47,3 +47,4 @@ hidden:
   comment: true
   field_image: true
   field_tag: true
+  langcode: true

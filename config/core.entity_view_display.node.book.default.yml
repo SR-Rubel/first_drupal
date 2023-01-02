@@ -75,4 +75,5 @@ content:
 hidden:
   field_categories: true
   field_is: true
+  langcode: true
   links: true

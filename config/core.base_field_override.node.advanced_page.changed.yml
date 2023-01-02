@@ -1,0 +1,18 @@
+uuid: be7b26f7-6a38-4bb4-b2fe-99f2c2c0d0cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.advanced_page
+id: node.advanced_page.changed
+field_name: changed
+entity_type: node
+bundle: advanced_page
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

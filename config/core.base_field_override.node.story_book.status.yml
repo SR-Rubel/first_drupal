@@ -1,0 +1,22 @@
+uuid: 414122fc-1777-4151-a876-68bed98727bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.story_book
+id: node.story_book.status
+field_name: status
+entity_type: node
+bundle: story_book
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

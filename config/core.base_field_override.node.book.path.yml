@@ -1,0 +1,20 @@
+uuid: bba37e1a-7668-40f6-b354-75e53168c3f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.book
+  module:
+    - path
+id: node.book.path
+field_name: path
+entity_type: node
+bundle: book
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

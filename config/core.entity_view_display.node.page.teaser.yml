@@ -24,3 +24,4 @@ hidden:
   field_add_content: true
   field_add_custom_block: true
   field_add_paragraph: true
+  langcode: true

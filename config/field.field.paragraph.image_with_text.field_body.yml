@@ -14,7 +14,7 @@ bundle: image_with_text
 label: text
 description: 'enter text'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

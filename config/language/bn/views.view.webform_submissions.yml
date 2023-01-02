@@ -1,0 +1,39 @@
+display:
+  default:
+    display_options:
+      fields:
+        remote_addr:
+          label: 'IP ঠিকানা'
+        view_webform_submission:
+          label: কার্যাবলী
+          text: প্রদর্শন
+      arguments:
+        in_draft:
+          exception:
+            title: সমস্ত
+  embed_administer:
+    display_options:
+      fields:
+        remote_addr:
+          label: 'IP ঠিকানা'
+        operations:
+          label: কার্যাবলী
+  embed_manage:
+    display_options:
+      fields:
+        remote_addr:
+          label: 'IP ঠিকানা'
+        view_webform_submission:
+          label: কার্যাবলী
+          text: প্রদর্শন
+        edit_webform_submission:
+          label: কার্যাবলী
+          text: সম্পাদন
+  embed_review:
+    display_options:
+      fields:
+        remote_addr:
+          label: 'IP ঠিকানা'
+        view_webform_submission:
+          label: কার্যাবলী
+          text: প্রদর্শন

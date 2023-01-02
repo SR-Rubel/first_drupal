@@ -57,3 +57,4 @@ hidden:
   field_description: true
   field_is: true
   field_rating: true
+  langcode: true

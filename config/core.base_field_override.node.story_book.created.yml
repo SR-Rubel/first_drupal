@@ -1,0 +1,18 @@
+uuid: a8a97ad2-6402-4f0e-9fcd-972896c741c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.story_book
+id: node.story_book.created
+field_name: created
+entity_type: node
+bundle: story_book
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created
