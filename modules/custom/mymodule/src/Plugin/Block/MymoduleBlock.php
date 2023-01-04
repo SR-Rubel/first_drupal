@@ -25,6 +25,8 @@ class MymoduleBlock extends BlockBase implements TrustedCallbackInterface {
    */
   public function build()
   {
+    //---------here is problem view's are not caching as a render array---------
+
     // return [
     //   '#type' => 'view',
     //   '#name' => 'books',
@@ -36,21 +38,33 @@ class MymoduleBlock extends BlockBase implements TrustedCallbackInterface {
     //     'max-age' => Cache::PERMANENT,
     //   ]
     // ];
-    // $output = '<h1>Some random string: '.rand(1,10000).'</h1>';
+ 
+    // ======this is simple example about drupal caching======
+    $output = '<h1>Some random string: '.rand(1,10000).'</h1>';
+    $build =  [
+      '#markup' => $output,
+      '#display_id' => 'all_books',
+      '#cache' => [
+        'tags' => [
+          'node:16',
+        ],
+        'max-age' => 10,
+      ]
+    ];
+
+    // ======example of lazy builder in drupal and auto placeholder======
+
     $build['normal'] = [
       '#markup' => '<p>this is simple text</p>',
-      // '#cache' => [
-      //   'tags' => [
-      //     'node:16',
-      //   ],
-      //   'max-age' => 0,
-      // ]
     ];
     $build['complex'] =[
       '#lazy_builder' => [static::class.'::lazyBuilderComplexData',[]],
       '#create_placeholder' => TRUE,
     ];
     // $build['complex'] = self::lazyBuilderComplexData();
+
+
+    // returning of the build
     return $build;
   }
   public static function lazyBuilderComplexData(){
