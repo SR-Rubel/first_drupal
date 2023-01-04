@@ -1,0 +1,38 @@
+
+content_export_yaml.content_export_yaml_setting_form:
+  path: '/admin/config/content_export_yaml/setting'
+  defaults:
+    _form: '\Drupal\content_export_yaml\Form\ContentExportSettingForm'
+    _title: 'Content Export YAML Setting'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+    
+content_export_yaml.manage_content_yaml_form:
+  path: '/admin/config/content_export_yaml'
+  defaults:
+    _form: '\Drupal\content_export_yaml\Form\ContentExportManagerForm'
+    _title: 'Content Export YAML List'
+  requirements:
+    _permission: 'manage content export yaml'
+  options:
+    _admin_route: TRUE    
+content_export_yaml.manage_content_yaml_view:
+  path: '/admin/config/content_export_yaml/view'
+  defaults:
+    _controller: 'Drupal\content_export_yaml\Controller\ContentExportController::view'
+    _title: 'Content Export YAML View Info'
+  requirements:
+    _permission: 'manage content export yaml'
+  options:
+    _admin_route: TRUE    
+content_export_yaml.manage_content_import_yaml_form:
+  path: '/admin/config/content_import_yaml'
+  defaults:
+    _form: '\Drupal\content_export_yaml\Form\ContentImportManagerForm'
+    _title: 'Content Import YAML List'
+  requirements:
+    _permission: 'manage content export yaml'
+  options:
+    _admin_route: TRUE       
