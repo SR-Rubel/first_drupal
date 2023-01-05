@@ -1,0 +1,16 @@
+name: Web Profiler
+type: module
+description: 'Drupal Web Profiler.'
+package: Development
+core_version_requirement: ^8.8 || ^9
+php: 7.2
+configure: webprofiler.settings
+tags:
+ - developer
+dependencies:
+ - devel:devel
+
+# Information added by Drupal.org packaging script on 2022-10-07
+version: '9.0.2'
+project: 'webprofiler'
+datestamp: 1665128595

@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "doctrine/common": "2.13.3",
         "drupal/admin_toolbar": "^3.3",
         "drupal/config_split": "^1.9",
         "drupal/content_export_yaml": "^3.2",
@@ -23,10 +24,13 @@
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
         "drupal/core-vendor-hardening": "^9.4",
+        "drupal/devel": "^5.0",
+        "drupal/devel_php": "^1.5",
         "drupal/paragraphs": "^1.15",
         "drupal/taxonomy_menu": "^3.5",
         "drupal/twig_tweak": "^3.2",
-        "drupal/webform": "^6.1"
+        "drupal/webform": "^6.1",
+        "drupal/webprofiler": "^9.0"
     },
     "conflict": {
         "drupal/drupal": "*"

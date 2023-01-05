@@ -1,0 +1,22 @@
+{
+  "name": "drupal/webprofiler",
+  "description": "Drupal Webprofiler.",
+  "type": "drupal-module",
+  "support": {
+    "issues": "https://gitlab.com/drupalspoons/webprofiler/-/issues",
+    "source": "https://gitlab.com/drupalspoons/webprofiler"
+  },
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Luca Lusso",
+      "email": "lussoluca@gmail.com",
+      "homepage": "https://github.com/lussoluca",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "symfony/var-dumper": "^4 || ^5",
+    "doctrine/common": "^2.7"
+  }
+}
