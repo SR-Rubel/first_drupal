@@ -44,5 +44,4 @@ content:
     region: content
 hidden:
   field_books: true
-  langcode: true
   links: true

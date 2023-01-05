@@ -13,11 +13,13 @@ module:
   comment: 0
   config: 0
   config_filter: 0
-  config_translation: 0
   contact: 0
   contextual: 0
   datetime: 0
   dblog: 0
+  devel: 0
+  devel_generate: 0
+  devel_php: 0
   dynamic_page_cache: 0
   editor: 0
   entity_reference_revisions: 0
@@ -28,14 +30,11 @@ module:
   help: 0
   history: 0
   image: 0
-  language: 0
   layout_builder: 0
   layout_discovery: 0
   link: 0
-  locale: 0
   menu_link_content: 0
   menu_ui: 0
-  mymodule: 0
   mysql: 0
   node: 0
   options: 0
@@ -59,7 +58,7 @@ module:
   webform: 0
   webform_node: 0
   webform_ui: 0
-  content_translation: 10
+  webprofiler: 0
   views: 10
   paragraphs: 11
   standard: 1000

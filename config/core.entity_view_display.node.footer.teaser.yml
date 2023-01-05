@@ -20,4 +20,3 @@ content:
     region: content
 hidden:
   field_contact_form: true
-  langcode: true

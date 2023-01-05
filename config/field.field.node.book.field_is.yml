@@ -12,7 +12,7 @@ bundle: book
 label: is_featured
 description: 'Is this book is featured'
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: 0

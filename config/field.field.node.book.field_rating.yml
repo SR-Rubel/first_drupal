@@ -12,7 +12,7 @@ bundle: book
 label: rating
 description: 'book rating'
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: !!float 0
