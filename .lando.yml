@@ -9,6 +9,7 @@ services:
       - database
   Redis:
     type: redis
+    portforward: 6379
 proxy:
   phpmyadmin:
     - phpmyadmin.api_practice.lndo.site
