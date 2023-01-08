@@ -1,0 +1,21 @@
+uuid: b35097b2-1f43-42be-9996-da7ac43658ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - mymodule
+  theme:
+    - bookshop
+id: testblock
+theme: bookshop
+region: header
+weight: 0
+provider: null
+plugin: mymodule_block
+settings:
+  id: mymodule_block
+  label: 'Caching test'
+  label_display: visible
+  provider: mymodule
+  message: ''
+visibility: {  }

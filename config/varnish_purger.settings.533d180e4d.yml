@@ -1,0 +1,25 @@
+uuid: 6f8d58e1-2739-4aed-949e-daf1ad6af6d0
+langcode: en
+status: true
+dependencies: {  }
+id: 533d180e4d
+name: test
+invalidationtype: tag
+hostname: varnish
+port: 6081
+path: /
+request_method: BAN
+scheme: http
+verify: '1'
+headers:
+  -
+    field: Cache-tags
+    value: '[invalidation:expression]'
+body: null
+body_content_type: null
+runtime_measurement: true
+timeout: !!float 1
+connect_timeout: !!float 1
+cooldown_time: !!float 0
+max_requests: 100
+http_errors: true

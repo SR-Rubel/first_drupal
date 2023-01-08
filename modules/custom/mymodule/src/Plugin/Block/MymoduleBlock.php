@@ -25,7 +25,7 @@ class MymoduleBlock extends BlockBase implements TrustedCallbackInterface {
    */
   public function build()
   {
-    //---------here is problem view's are not caching as a render array---------
+    //---------here is a problem view's are not caching as a render array---------
 
     // return [
     //   '#type' => 'view',
@@ -39,16 +39,20 @@ class MymoduleBlock extends BlockBase implements TrustedCallbackInterface {
     //   ]
     // ];
  
-    // ======this is simple example about drupal caching======
+    // ======this is a simple example about drupal caching======
     $output = '<h1>Some random string: '.rand(1,10000).'</h1>';
     $build =  [
       '#markup' => $output,
-      '#display_id' => 'all_books',
       '#cache' => [
+        'contexts' => [ 
+          // The "current user" is used above, which depends on the request, 
+          // so we tell Drupal to vary by the 'user' cache context.
+          'user', 
+        ],
         'tags' => [
           'node:16',
         ],
-        'max-age' => 10,
+        'max-age' => -1,
       ]
     ];
 

@@ -10,6 +10,11 @@ services:
   Redis:
     type: redis
     portforward: 6379
+  varnish:
+    type: varnish
+    backends:
+      - appserver
+    backend_port: 80
 proxy:
   phpmyadmin:
     - phpmyadmin.api_practice.lndo.site
