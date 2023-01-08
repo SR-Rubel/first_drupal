@@ -54,13 +54,13 @@ class MymoduleBlock extends BlockBase implements TrustedCallbackInterface {
 
     // ======example of lazy builder in drupal and auto placeholder======
 
-    $build['normal'] = [
-      '#markup' => '<p>this is simple text</p>',
-    ];
-    $build['complex'] =[
-      '#lazy_builder' => [static::class.'::lazyBuilderComplexData',[]],
-      '#create_placeholder' => TRUE,
-    ];
+    // $build['normal'] = [
+    //   '#markup' => '<p>this is simple text</p>',
+    // ];
+    // $build['complex'] =[
+    //   '#lazy_builder' => [static::class.'::lazyBuilderComplexData',[]],
+    //   '#create_placeholder' => TRUE,
+    // ];
     // $build['complex'] = self::lazyBuilderComplexData();
 
 

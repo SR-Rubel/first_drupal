@@ -1,0 +1,28 @@
+uuid: a7773efd-da9f-453e-b91d-584d770c5c45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.story_book.body
+    - node.type.story_book
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: _9NzlY6nPAYS55y1JtOa-XMdmBWeCFva4ijwzBzTgCg
+id: node.story_book.default
+targetEntityType: node
+bundle: story_book
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

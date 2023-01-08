@@ -1,0 +1,16 @@
+uuid: 27074224-d02d-46e1-8641-b2534f0640ec
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - mymodule
+_core:
+  default_config_hash: L3RLGgqDTlp1S8PEcstOIS-L40uIUo3eVSnFj-MTdeU
+name: 'Story Book'
+type: story_book
+description: 'Content type that can be used to provide additional information on <em>Car Brands</em>'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true
