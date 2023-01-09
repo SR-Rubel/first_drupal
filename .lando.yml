@@ -1,7 +1,11 @@
 name: api_practice
 recipe: drupal9
 config:
+  php: '8.0'
   webroot: .
+  xdebug: true
+  config:
+    php: lando/config/php.ini
 services:
   pma:
     type: phpmyadmin

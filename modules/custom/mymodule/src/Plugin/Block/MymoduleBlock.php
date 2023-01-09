@@ -28,7 +28,7 @@ class MymoduleBlock extends BlockBase implements TrustedCallbackInterface {
     //---------here is a problem view's are not caching as a render array---------
 
     // return [
-    //   '#type' => 'view',
+    //   '#type' => 'view',$output
     //   '#name' => 'books',
     //   '#display_id' => 'all_books',
     //   '#cache' => [
