@@ -5,7 +5,7 @@ config:
   webroot: .
   xdebug: true
   config:
-    php: lando/config/php.ini
+    php: .lando.php.ini
 services:
   pma:
     type: phpmyadmin

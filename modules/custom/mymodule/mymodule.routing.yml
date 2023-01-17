@@ -12,6 +12,13 @@ custom.mymodule.delete:
     _title: 'a custom node for testing purpose'
   requirements:
     _permission: 'access content'
+custom.mymodule.custom-twig:
+  path: '/custom-twig'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MymoduleController::view'
+    _title: 'A custom twig for rendering'
+  requirements:
+    _permission: 'access content'
 custom.mymodule.test:
   path: '/test'
   defaults:
