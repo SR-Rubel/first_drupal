@@ -8,11 +8,8 @@
 namespace Drupal\mymodule\Controller;
 
 use Drupal;
-use Entity;
 use Drupal\node\Entity\Node;
-use Drupal\Core\Language\Language;
 use Drupal\Core\Controller\ControllerBase;
-use Symfony\Component\HttpFoundation\Response;
 
 class MymoduleController extends ControllerBase
 {

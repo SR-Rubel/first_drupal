@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+
+function mymodule_theme($existing,$type,$theme,$path)
+{
+  return [
+    'landing' => [
+      'variables'=>['content' => NULL],
+    ]
+  ];
+}
+function mymodule_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+ dd($display);
+}

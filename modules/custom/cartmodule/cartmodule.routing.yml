@@ -1,0 +1,28 @@
+custom.mymodule.generate:
+  path: '/generate-books'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MymoduleController::generateBooks'
+    _title: 'a custom node for testing purpose'
+  requirements:
+    _permission: 'access content'
+custom.mymodule.delete:
+  path: '/delete-books'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MymoduleController::deleteBooks'
+    _title: 'a custom node for testing purpose'
+  requirements:
+    _permission: 'access content'
+custom.mymodule.custom-twig:
+  path: '/custom-twig'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MymoduleController::view'
+    _title: 'A custom twig for rendering'
+  requirements:
+    _permission: 'access content'
+custom.mymodule.test:
+  path: '/test'
+  defaults:
+    _controller: '\Drupal\mymodule\Controller\MymoduleController::test'
+    _title: 'a custom node for testing purpose'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,71 @@
+<?php
+/**
+ * @file
+ * Install, Update and uninstall functions for the cartmodule module
+ */
+
+
+function cartmodule_schema(){
+  // create database table called 'cartmodule' with the following columns:
+  // 1) id [serial], 2) uid [int] 3) nid [int], 4) mail [varchar], 5) created [int]
+  $schema['cartmodule'] = [
+    'description' => 'Stores books in cart',
+    'fields' => [
+      'id' => [
+        'description' => 'The primary identifier for the record',
+        'type' => 'serial',
+        'size' =>'small',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'uid' => [
+        'description' => 'The {users}.uid that added this book',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' =>0,
+      ],
+      'book_id' => [
+        'description' => 'The {node}.nid for this book',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' =>0,
+      ],
+      'quantity' => [
+        'description' => 'Quantity of item',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' =>1,
+      ],
+      'created' => [
+        'description' => 'Timestamp for when item was added.',
+        'type' => 'int',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => 0
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'node' => ['nid'],
+      'node_USER' => ['nid','uid']
+    ]
+  ];
+  // Create a database table named 'cartmodule_enabled' with the following fields:
+  // 1) nid [int]
+  $schema['cartmodule_enabled'] = [
+    'description' => 'Tracks whether cart module is enabled or not for a node',
+    'fields' => [
+      'nid' => [
+        'description' => 'the {node}.nid that has cartmodule enabled',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ]
+    ],
+    'primary key' => ['nid']
+  ];
+  return $schema;
+}

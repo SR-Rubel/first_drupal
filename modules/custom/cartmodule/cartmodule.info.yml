@@ -1,0 +1,5 @@
+name: 'cartmodule'
+type: module
+core_version_requirement: ^9
+description: 'this module is created for implementing cart in bookshop'
+package: 'Custom modules from me'
