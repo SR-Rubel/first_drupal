@@ -97,6 +97,12 @@
           {{content.field_name}}
           {{content.field_rating}}
           {{content.field_authors}}
+
+          <form action={{ path('custom.cartmodule.add-to-cart')}} method="POST">
+            <input type="hidden" id="book_id" name="book_id" value={{node.id}} />
+            <input type="number" value="1" name="quantity" min="1" />
+            <button class="btn-dark" type="submit" value="Submit">Add to cart</button>
+          </form>
         </div>
     </div>
     <div class="bottom">

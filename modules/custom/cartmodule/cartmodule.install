@@ -48,8 +48,8 @@ function cartmodule_schema(){
     ],
     'primary key' => ['id'],
     'indexes' => [
-      'node' => ['nid'],
-      'node_USER' => ['nid','uid']
+      'node' => ['book_id'],
+      'node_USER' => ['book_id','uid']
     ]
   ];
   // Create a database table named 'cartmodule_enabled' with the following fields:

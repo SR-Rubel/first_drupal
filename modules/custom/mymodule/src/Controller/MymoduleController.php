@@ -10,6 +10,7 @@ namespace Drupal\mymodule\Controller;
 use Drupal;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\Request;
 
 class MymoduleController extends ControllerBase
 {
@@ -58,8 +59,8 @@ class MymoduleController extends ControllerBase
     dd($configEntity);
     // creating a content entity
   }
-  public function test(){
-
+  public function test(Request $request){
+    dd($request);
     // $entity = \Drupal::entityTypeManager()->getStorage('node')->load(15);
     // dd(\Drupal::entityTypeManager()->getAccessControlHandler('node'));
     // dd($entity->access('book'));
@@ -83,7 +84,7 @@ class MymoduleController extends ControllerBase
 
 
 //    dd(Drupal::entityTypeManager()->getStorage('node')->load(15)->toUrl()->toString());
-    $this->createEntityPractice();
+    // $this->createEntityPractice();
   }
   public function createNodeType(string $type){
     // getting all entity of distinct type (author)

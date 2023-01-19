@@ -12,6 +12,6 @@ function mymodule_theme($existing,$type,$theme,$path)
     ]
   ];
 }
-function mymodule_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
- dd($display);
-}
+// function mymodule_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+//  dd($display);
+// }
