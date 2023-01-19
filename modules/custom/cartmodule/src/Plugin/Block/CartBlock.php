@@ -32,19 +32,27 @@ use Drupal\node\Entity\Node;
     $query->addExpression('SUM("quantity")');
     $count = $query->execute()->fetchField();
 
-    $title_list = '';
+    $title_list = [];
     $query = \Drupal::database()->select('cartmodule', 't');
     $result = $query->condition('t.id', 0, '<>')->fields('t', ['uid', 'quantity', 'uid', 'book_id'])->execute();
 
     foreach ($result as $record) {
       $book = Node::load($record->book_id);
-      $title_list = $title_list . '<li class = "dropdown-item">'.$book->field_name->value.'</li>';
+      // array_push($title_list, $book->field_name->value);
+      array_push($title_list,[
+        '#type' => 'html_tag',
+        '#tag' => 'li',
+        '#attributes' => ['class' => 'dropdown-item'],
+        '#value' => $book->field_name->value
+      ]);
     }
+
+    $render_service = \Drupal::service('renderer');
 
     $items = [
       '#type' => 'html_tag',
       '#tag' => 'ul',
-      '#value' => $title_list,
+      '#value' => $render_service->renderPlain($title_list),
       '#attributes' => ['class' => 'dropdown-menu', "aria-labelledby" => "dropdownMenuButton1"],
       '#cache' => [
         'max-age' => 0,
