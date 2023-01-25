@@ -42,15 +42,12 @@ function bookshop_preprocess_node__20(&$variables)
     $temp = [];
     $temp['name'] = $author->_entity->field_name->value;
     if ($author->_entity->field_image->entity) {
-
       $image_url = \Drupal::service('file_url_generator')->generateAbsoluteString($author->_entity->field_image->entity->getFileUri());
       $temp['image'] = $image_url;
-      // dd($image_url);
     }
     $temp['body'] = $author->_entity->body->value;
     array_push($authors, $temp);
   }
-  // dd($authors);
   $variables['authors'] = $authors;
   return $variables;
 }
