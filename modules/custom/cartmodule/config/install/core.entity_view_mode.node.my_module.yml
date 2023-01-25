@@ -4,7 +4,7 @@ dependencies:
   module:
     - node
     - cartmodule
-id: node.cartmodule
+id: node.cart_view
 label: 'Cat View'
 targetEntityType: node
 cache: true
