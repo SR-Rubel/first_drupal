@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - cartmodule
+id: node.cartmodule
+label: 'Cat View'
+targetEntityType: node
+cache: true
