@@ -6,3 +6,11 @@ custom.cartmodule.add-to-cart:
   requirements:
     _permission: 'access content'
     methods: "POST"
+custom.cartmodule.delete-from-cart:
+  path: '/delete-from-cart'
+  defaults:
+    _controller: '\Drupal\cartmodule\Controller\CartmoduleController::deleteFromCart'
+    _title: 'added to cart'
+  requirements:
+    _permission: 'access content'
+    methods: "POST"
