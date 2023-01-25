@@ -26,49 +26,56 @@ use Drupal\node\Entity\Node;
    */
   public function build()
   {
-    $content = [];
+    // renderer service which is need to print array of render inside another render array
+    $render_service = \Drupal::service('renderer');
 
+    $content = [];
+    // counting how many product added to cart
     $query = \Drupal::database()->select('cartmodule', 't');
     $query->addExpression('SUM("quantity")');
     $count = $query->execute()->fetchField();
 
+    // getting added cart item from database
     $title_list = [];
     $query = \Drupal::database()->select('cartmodule', 't');
     $result = $query->condition('t.id', 0, '<>')->fields('t', ['uid', 'quantity', 'uid', 'book_id'])->execute();
 
+    // looping through the result for getting book related to the cart
     foreach ($result as $record) {
       $book = Node::load($record->book_id);
-      // array_push($title_list, $book->field_name->value);
-      array_push($title_list,[
-        '#type' => 'html_tag',
-        '#tag' => 'li',
-        '#attributes' => ['class' => 'dropdown-item'],
-        '#value' => $book->field_name->value
-      ]);
+      $cart_view = \Drupal::entityTypeManager()->getViewBuilder('node')->view($book, 'cart_view', 'en');
+      $wrapper = [
+        '#type' => 'container',
+        '#attributes' => ['class' => 'my-custom-class'],
+        '#prefix' => '<div>',
+        '#suffix' => '</div>',
+        'child_1' => [
+          '#type' => 'html_tag',
+          '#tag' => 'div',
+          '#value' => $render_service->renderPlain($cart_view),
+        ],
+        'child_2' => [
+          '#type' => 'html_tag',
+          '#tag' => 'div',
+          '#value' => $record->quantity,
+        ]
+      ];
+      array_push($title_list,$wrapper);
     }
 
-    $render_service = \Drupal::service('renderer');
+
 
     $items = [
       '#type' => 'html_tag',
-      '#tag' => 'ul',
+      '#tag' => 'div',
+      '#theme' => 'item-list',
       '#value' => $render_service->renderPlain($title_list),
-      '#attributes' => ['class' => 'dropdown-menu', "aria-labelledby" => "dropdownMenuButton1"],
+      // '#attributes' => ['class' => 'dropdown-menu', "aria-labelledby" => "dropdownMenuButton1"],
       '#cache' => [
         'max-age' => 0,
       ]
     ];
-    // $items = [
-    //   '#theme' => 'item_list',
-    //   '#list_type' => 'ul',
-    //   '#items' => $title_list,
-    //   '#attributes' => ['class' => 'dropdown-menu', "aria-labelledby" => "dropdownMenuButton1"],
-    //   '#cache' => [
-    //     'max-age' => 0,
-    //   ]
-    // ];
 
-    // making product list
     $content['count'] = $count;
     $content['items'] = $items;
     return [
