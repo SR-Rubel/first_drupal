@@ -346,5 +346,13 @@ body {
 .cart{
   .dropdown-menu[data-bs-popper]{
     right: 0;
+		left:auto;
+		.wrapper{
+			display: flex;
+			.image img{
+				width: 3rem;
+				height: auto;
+			}
+		}
   }
 } 
