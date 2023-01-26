@@ -349,9 +349,15 @@ body {
 		left:auto;
 		.wrapper{
 			display: flex;
+			& > div{
+				padding: 1rem;
+			}
 			.image img{
 				width: 3rem;
 				height: auto;
+			}
+			.button{
+				margin:.8rem;
 			}
 		}
   }

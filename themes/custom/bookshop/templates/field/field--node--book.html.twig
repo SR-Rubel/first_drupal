@@ -58,7 +58,7 @@
   {% endif %}
 {% else %}
   <div{{ attributes }} class="wrapper">
-    <div{{ title_attributes.addClass(title_classes) }} class={{label ~ '_label'}}>{{ label }}:</div>
+    <div{{ title_attributes.addClass(title_classes) }} class={{label ~ '_label'}}>{{ label }}: </div>
       {% if multiple %}
       {% endif %}
       {% for item in items %}
