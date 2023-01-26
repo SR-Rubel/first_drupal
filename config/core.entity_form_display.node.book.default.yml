@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.book.field_image
     - field.field.node.book.field_is
     - field.field.node.book.field_name
+    - field.field.node.book.field_price
     - field.field.node.book.field_rating
     - image.style.thumbnail
     - node.type.book
@@ -87,6 +88,13 @@ content:
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_price:
+    type: number
+    weight: 27
+    region: content
+    settings:
       placeholder: ''
     third_party_settings: {  }
   field_rating:

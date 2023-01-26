@@ -1,9 +1,9 @@
-uuid: f08d13b4-5032-4b02-9908-df56fd3f5d5b
+uuid: 69d3c629-cdcd-42bb-adb9-eb6a8784e862
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.cart_view
     - field.field.node.book.field_authors
     - field.field.node.book.field_categories
     - field.field.node.book.field_description
@@ -15,24 +15,21 @@ dependencies:
     - node.type.book
   module:
     - image
+    - layout_builder
     - text
     - user
-id: node.book.teaser
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.book.cart_view
 targetEntityType: node
 bundle: book
-mode: teaser
+mode: cart_view
 content:
-  field_categories:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_image:
     type: image
-    label: visually_hidden
+    label: hidden
     settings:
       image_link: ''
       image_style: ''
@@ -48,14 +45,11 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-    region: content
 hidden:
   field_authors: true
+  field_categories: true
   field_description: true
   field_is: true
   field_price: true
   field_rating: true
+  links: true

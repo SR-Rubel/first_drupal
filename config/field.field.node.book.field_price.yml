@@ -1,0 +1,23 @@
+uuid: 668bc84c-8f1e-471e-b954-cd1b58c698ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price
+    - node.type.book
+id: node.book.field_price
+field_name: field_price
+entity_type: node
+bundle: book
+label: price
+description: 'enter the price of this book'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float
