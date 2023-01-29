@@ -361,4 +361,19 @@ body {
 			}
 		}
   }
-} 
+}
+.checkout{
+	width: 60%;
+	.wrapper{
+		display: flex;
+		justify-content: space-around;
+		img{
+			width:5rem;
+			height: auto;
+		}
+	}
+}
+.thanks, .card{
+	border: none;
+	width: 40%;
+}

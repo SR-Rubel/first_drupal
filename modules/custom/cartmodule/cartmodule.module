@@ -9,6 +9,21 @@ function cartmodule_theme($existing,$type,$theme,$path)
   return [
     'cartblock' => [
       'variables'=>['content' => NULL],
+    ],
+    'checkout' => [
+      'variables'=>['content' => NULL ],
+    ],
+    'thanks' => [
+      'variables'=>['content' => NULL ],
     ]
   ];
+}
+function cartmodule_preprocess(&$variables, $hook) {
+  $module_handler = Drupal::service('module_handler');
+  $path = $module_handler->getModule('cartmodule')->getPath();
+  // dd($path);
+
+  // if(isset($variables['region']) && $variables['region'] == 'content'){
+    $variables['module_path'] = $path;
+  // }
 }

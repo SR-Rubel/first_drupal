@@ -7,7 +7,11 @@
     </button>
     <div class ='dropdown-menu p-3' aria-labelledby ="dropdownMenuButton1">
       {{content.items}}
-      <div class="btn btn-success w-100">Checkout</div>
+        <a href={{path('custom.cartmodule.checkout')}}>
+          <div class="btn btn-success w-100">
+            Checkout
+          </div>
+        </a>
     </div>
   </div>
 </div>

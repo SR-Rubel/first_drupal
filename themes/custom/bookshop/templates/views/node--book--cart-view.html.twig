@@ -95,6 +95,9 @@
     <div class='book_name'>
     {{ content.field_name }}
     </div>
+    <div class='price'>
+      <p>{{ content.field_price}}$</p>
+    </div>
     <form action={{ path('custom.cartmodule.delete-from-cart')}} method="POST" class='ms-auto'>
       <input type="hidden" id="book_id" name="book_id" value={{node.id}} />
       <button type='submit' value='submit'  class='btn btn-danger align-self-start remove-form-cart'>
@@ -104,7 +107,5 @@
         </svg>
       </button>
     </form>
-    
   </div>
-
 </article>

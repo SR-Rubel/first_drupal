@@ -14,3 +14,19 @@ custom.cartmodule.delete-from-cart:
   requirements:
     _permission: 'access content'
     methods: "POST"
+custom.cartmodule.checkout:
+  path: '/checkout'
+  defaults:
+    _controller: '\Drupal\cartmodule\Controller\CartmoduleController::checkout'
+    _title: 'added to cart'
+  requirements:
+    _permission: 'access content'
+    methods: "POST"
+custom.cartmodule.confirmed:
+  path: '/confirmed'
+  defaults:
+    _controller: '\Drupal\cartmodule\Controller\CartmoduleController::confirmed'
+    _title: 'added to cart'
+  requirements:
+    _permission: 'access content'
+    methods: "POST"
