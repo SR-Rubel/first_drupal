@@ -9,6 +9,7 @@ namespace Drupal\cartmodule\Controller;
 
 use Drupal\Core\Database\Database;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\node\Entity\Node;
 use Symfony\Component\HttpFoundation\Request;
 
 class CartmoduleController extends ControllerBase
@@ -16,12 +17,14 @@ class CartmoduleController extends ControllerBase
   private $user;
   private $conn;
   private $msg;
+  private $db;
 
   public function __construct()
   {
     $this->user = \Drupal::currentUser()->id();
     $this->conn = Database::getConnection();
     $this->msg = \Drupal::messenger();
+    $this->db = \Drupal::database();
   }
 
   public function addToCart(Request $request)
@@ -63,5 +66,35 @@ class CartmoduleController extends ControllerBase
     ->execute();
     $this->msg->addWarning('Book removed from cart');
     return $this->redirect('entity.node.canonical', ['node' => $request->request->get('book_id')]);
+  }
+  public function checkout()
+  {
+    $query = $this->db->select('cartmodule', 'c');
+    $query->fields('c', ['book_id','quantity']);
+    $query->condition('uid', $this->user);
+    $result = $query->execute();
+    $total_cost = 0;
+    foreach($result as $record)
+    {
+      $node = Node::load($record->book_id);
+      $book_price = $node->field_price->value;
+      $total_cost += $book_price*$record->quantity;
+    }
+    // dd($total_cost);
+    $block_manager = \Drupal::service('plugin.manager.block');
+    $plugin_block = $block_manager->createInstance('cart_block');
+    $render = $plugin_block->build();
+    // dd($render);
+    return [
+      '#theme' => 'checkout',
+      '#content' => ['books' => $render['#content']['items'],'total'=>$total_cost]
+    ];
+    return $render['#content']['items'];
+  }
+  public function confirmed()
+  {
+    return [
+    '#theme' => 'thanks',
+    ];
   }
 }

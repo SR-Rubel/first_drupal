@@ -96,7 +96,7 @@
     {{ content.field_name }}
     </div>
     <div class='price'>
-      <p>{{ content.field_price}}$</p>
+      {{ content.field_price }}
     </div>
     <form action={{ path('custom.cartmodule.delete-from-cart')}} method="POST" class='ms-auto'>
       <input type="hidden" id="book_id" name="book_id" value={{node.id}} />
