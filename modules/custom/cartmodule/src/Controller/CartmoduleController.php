@@ -93,6 +93,16 @@ class CartmoduleController extends ControllerBase
   }
   public function confirmed()
   {
+    $mailManager = \Drupal::service('plugin.manager.mail');
+    $module = 'cartmodule';
+    $key = 'order'; // Replace with Your key
+    $to = \Drupal::currentUser()->getEmail();
+    $params['message'] = "Thanks for placing order. Your order tacking number is x33dfhd";
+    $params['title'] = "Your order has been placed";
+    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+    $send = true;
+    $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+    $this->msg->addMessage('mail sent');
     return [
     '#theme' => 'thanks',
     ];

@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Component\Utility\Html;
+
 /**
  * Implements hook_theme().
  */
@@ -26,4 +28,18 @@ function cartmodule_preprocess(&$variables, $hook) {
   // if(isset($variables['region']) && $variables['region'] == 'content'){
     $variables['module_path'] = $path;
   // }
+}
+
+function cartmodule_mail($key, &$message, $params) {
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+  switch ($key) {
+    case 'order':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      // $message['subject'] = $this->t('Your mail subject Here: @title', array('@title' => $params['title']), $options);
+      $message['subject'] = $params['title'];
+      $message['body'][] = Html::escape($params['message']);
+      break;
+  }
 }
