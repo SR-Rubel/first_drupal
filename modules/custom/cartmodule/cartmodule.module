@@ -23,10 +23,15 @@ function cartmodule_theme($existing,$type,$theme,$path)
 function cartmodule_preprocess(&$variables, $hook) {
   $module_handler = Drupal::service('module_handler');
   $path = $module_handler->getModule('cartmodule')->getPath();
-  // dd($path);
+
+  $query = \Drupal::database()->select('cartmodule', 't');
+  $query->addExpression('SUM("quantity")');
+  $count = $query->execute()->fetchField();
+  $count = $count?$count:0;
 
   // if(isset($variables['region']) && $variables['region'] == 'content'){
     $variables['module_path'] = $path;
+    $variables['product_count'] = $count;
   // }
 }
 
