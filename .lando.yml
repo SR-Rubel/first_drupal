@@ -19,6 +19,13 @@ services:
     backends:
       - appserver
     backend_port: 80
+  mailhog:
+    type: mailhog
+    portforward: true
+    hogfrom:
+      - appserver
 proxy:
   phpmyadmin:
     - phpmyadmin.api_practice.lndo.site
+  mailhog:
+    - mail.lndo.site
