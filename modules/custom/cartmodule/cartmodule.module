@@ -6,36 +6,38 @@ use Drupal\Component\Utility\Html;
  * Implements hook_theme().
  */
 
-function cartmodule_theme($existing,$type,$theme,$path)
+function cartmodule_theme($existing, $type, $theme, $path)
 {
   return [
     'cartblock' => [
-      'variables'=>['content' => NULL],
+      'variables' => ['content' => NULL],
     ],
     'checkout' => [
-      'variables'=>['content' => NULL ],
+      'variables' => ['content' => NULL],
     ],
     'thanks' => [
-      'variables'=>['content' => NULL ],
+      'variables' => ['content' => NULL],
     ]
   ];
 }
-function cartmodule_preprocess(&$variables, $hook) {
+function cartmodule_preprocess(&$variables, $hook)
+{
   $module_handler = Drupal::service('module_handler');
   $path = $module_handler->getModule('cartmodule')->getPath();
 
   $query = \Drupal::database()->select('cartmodule', 't');
   $query->addExpression('SUM("quantity")');
   $count = $query->execute()->fetchField();
-  $count = $count?$count:0;
+  $count = $count ? $count : 0;
 
   // if(isset($variables['region']) && $variables['region'] == 'content'){
-    $variables['module_path'] = $path;
-    $variables['product_count'] = $count;
+  $variables['module_path'] = $path;
+  $variables['product_count'] = $count;
   // }
 }
 
-function cartmodule_mail($key, &$message, $params) {
+function cartmodule_mail($key, &$message, $params)
+{
   $options = array(
     'langcode' => $message['langcode'],
   );

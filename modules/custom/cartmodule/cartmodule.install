@@ -1,11 +1,13 @@
 <?php
+
 /**
  * @file
  * Install, Update and uninstall functions for the cartmodule module
  */
 
 
-function cartmodule_schema(){
+function cartmodule_schema()
+{
   // create database table called 'cartmodule' with the following columns:
   // 1) id [serial], 2) uid [int] 3) nid [int], 4) mail [varchar], 5) created [int]
   $schema['cartmodule'] = [
@@ -14,7 +16,7 @@ function cartmodule_schema(){
       'id' => [
         'description' => 'The primary identifier for the record',
         'type' => 'serial',
-        'size' =>'small',
+        'size' => 'small',
         'unsigned' => TRUE,
         'not null' => TRUE,
       ],
@@ -22,21 +24,21 @@ function cartmodule_schema(){
         'description' => 'The {users}.uid that added this book',
         'type' => 'int',
         'not null' => TRUE,
-        'default' =>0,
+        'default' => 0,
       ],
       'book_id' => [
         'description' => 'The {node}.nid for this book',
         'type' => 'int',
         'unsigned' => TRUE,
         'not null' => TRUE,
-        'default' =>0,
+        'default' => 0,
       ],
       'quantity' => [
         'description' => 'Quantity of item',
         'type' => 'int',
         'unsigned' => TRUE,
         'not null' => TRUE,
-        'default' =>1,
+        'default' => 1,
       ],
       'created' => [
         'description' => 'Timestamp for when item was added.',
@@ -49,7 +51,7 @@ function cartmodule_schema(){
     'primary key' => ['id'],
     'indexes' => [
       'node' => ['book_id'],
-      'node_USER' => ['book_id','uid']
+      'node_USER' => ['book_id', 'uid']
     ]
   ];
 
@@ -59,7 +61,7 @@ function cartmodule_schema(){
       'id' => [
         'description' => 'The primary identifier for the record',
         'type' => 'serial',
-        'size' =>'small',
+        'size' => 'small',
         'unsigned' => TRUE,
         'not null' => TRUE,
       ],
@@ -67,13 +69,13 @@ function cartmodule_schema(){
         'description' => 'The {users}.uid that added this book',
         'type' => 'int',
         'not null' => TRUE,
-        'default' =>0,
+        'default' => 0,
       ],
       'total' => [
         'description' => 'Total calculated price of this order',
         'type' => 'float',
         'not null' => TRUE,
-        'default' =>0,
+        'default' => 0,
       ],
       'address' => [
         'description' => 'Address for shipping the books',
@@ -93,7 +95,7 @@ function cartmodule_schema(){
     'primary key' => ['id'],
     'indexes' => [
       'order' => ['id'],
-      'order_USER' => ['id','uid']
+      'order_USER' => ['id', 'uid']
     ]
   ];
   $schema['order_details'] = [
@@ -102,7 +104,7 @@ function cartmodule_schema(){
       'id' => [
         'description' => 'The primary identifier for the record',
         'type' => 'serial',
-        'size' =>'small',
+        'size' => 'small',
         'unsigned' => TRUE,
         'not null' => TRUE,
       ],
@@ -111,27 +113,27 @@ function cartmodule_schema(){
         'type' => 'int',
         'unsigned' => TRUE,
         'not null' => TRUE,
-        'default' =>0,
+        'default' => 0,
       ],
       'book_id' => [
         'description' => 'The {node}.nid for this book',
         'type' => 'int',
         'unsigned' => TRUE,
         'not null' => TRUE,
-        'default' =>0,
+        'default' => 0,
       ],
       'unit_price' => [
         'description' => 'Unit price of book',
         'type' => 'float',
         'not null' => TRUE,
-        'default' =>1,
+        'default' => 1,
       ],
       'quantity' => [
         'description' => 'Quantity of item',
         'type' => 'int',
         'unsigned' => TRUE,
         'not null' => TRUE,
-        'default' =>1,
+        'default' => 1,
       ],
       'created' => [
         'description' => 'Timestamp for when item was added.',
@@ -142,10 +144,10 @@ function cartmodule_schema(){
       ],
     ],
     'primary key' => ['id'],
-    'foreign_key' => ['fk_order_details' => ['table'=>'orders','columns'=>['order_id' => 'id']]],
+    'foreign_key' => ['fk_order_details' => ['table' => 'orders', 'columns' => ['order_id' => 'id']]],
     'indexes' => [
       'order' => ['order_id'],
-      'order_BOOK' => ['order_id','book_id']
+      'order_BOOK' => ['order_id', 'book_id']
     ]
   ];
   $schema['payment_details'] = [
@@ -154,7 +156,7 @@ function cartmodule_schema(){
       'id' => [
         'description' => 'The primary identifier for the record',
         'type' => 'serial',
-        'size' =>'small',
+        'size' => 'small',
         'unsigned' => TRUE,
         'not null' => TRUE,
       ],
@@ -163,27 +165,27 @@ function cartmodule_schema(){
         'type' => 'int',
         'unsigned' => TRUE,
         'not null' => TRUE,
-        'default' =>0,
+        'default' => 0,
       ],
       'amount' => [
         'description' => 'Unit price of book',
         'type' => 'float',
         'not null' => TRUE,
-        'default' =>0,
+        'default' => 0,
       ],
       'provider' => [
         'description' => 'Payment provider',
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
-        'default' =>'',
+        'default' => '',
       ],
       'status' => [
         'description' => 'Quantity of item',
         'type' => 'int',
         'unsigned' => TRUE,
         'not null' => TRUE,
-        'default' =>1,
+        'default' => 1,
       ],
       'created' => [
         'description' => 'Timestamp for when item was added.',
@@ -194,7 +196,7 @@ function cartmodule_schema(){
       ],
     ],
     'primary key' => ['id'],
-    'foreign_key' => ['fk_order_payments' => ['table'=>'orders','columns'=>['order_id' => 'id']]],
+    'foreign_key' => ['fk_order_payments' => ['table' => 'orders', 'columns' => ['order_id' => 'id']]],
     'indexes' => [
       'order' => ['order_id'],
     ]

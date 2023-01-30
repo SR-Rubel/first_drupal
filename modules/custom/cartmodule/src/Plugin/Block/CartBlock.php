@@ -13,15 +13,16 @@ use Drupal\node\Entity\Node;
  */
 
 
- /**
+/**
  * provides a block with count of cart product
  * @Block(
  *  id = "cart_block",
  *  admin_label = @Translation("Cart Block")
  * )
  */
- class CartBlock extends BlockBase{
-    /**
+class CartBlock extends BlockBase
+{
+  /**
    * {@inherit}
    */
   public function build()
@@ -60,7 +61,7 @@ use Drupal\node\Entity\Node;
           '#value' => $record->quantity,
         ]
       ];
-      array_push($title_list,$wrapper);
+      array_push($title_list, $wrapper);
     }
 
 
@@ -86,4 +87,4 @@ use Drupal\node\Entity\Node;
       ]
     ];
   }
- }
+}
