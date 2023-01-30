@@ -10,6 +10,7 @@ namespace Drupal\cartmodule\Controller;
 use Drupal\Core\Database\Database;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\node\Entity\Node;
+use Exception;
 use Symfony\Component\HttpFoundation\Request;
 
 class CartmoduleController extends ControllerBase
@@ -18,6 +19,28 @@ class CartmoduleController extends ControllerBase
   private $conn;
   private $msg;
   private $db;
+
+  private function calculateTotal($save_details = false,$order_id = 0){
+    $query = $this->db->select('cartmodule', 'c');
+    $query->fields('c', ['book_id','quantity']);
+    $query->condition('uid', $this->user);
+    $result = $query->execute();
+    $total_cost = 0;
+    foreach($result as $record)
+    {
+      $node = Node::load($record->book_id);
+      $book_price = $node->field_price->value;
+      $total_cost += $book_price*$record->quantity;
+      if($save_details){
+        $data['book_id'] =  $record->book_id;
+        $data['order_id'] =  $order_id;
+        $data['unit_price'] =  $book_price;
+        $data['quantity'] =  $record->quantity;
+        $this->conn->insert('order_details')->fields($data)->execute();
+      }
+    }
+    return $total_cost;
+  }
 
   public function __construct()
   {
@@ -69,22 +92,12 @@ class CartmoduleController extends ControllerBase
   }
   public function checkout()
   {
-    $query = $this->db->select('cartmodule', 'c');
-    $query->fields('c', ['book_id','quantity']);
-    $query->condition('uid', $this->user);
-    $result = $query->execute();
-    $total_cost = 0;
-    foreach($result as $record)
-    {
-      $node = Node::load($record->book_id);
-      $book_price = $node->field_price->value;
-      $total_cost += $book_price*$record->quantity;
-    }
-    // dd($total_cost);
+    $total_cost = $this->calculateTotal();
+
     $block_manager = \Drupal::service('plugin.manager.block');
     $plugin_block = $block_manager->createInstance('cart_block');
     $render = $plugin_block->build();
-    // dd($render);
+
     return [
       '#theme' => 'checkout',
       '#content' => ['books' => $render['#content']['items'],'total'=>$total_cost]
@@ -93,16 +106,41 @@ class CartmoduleController extends ControllerBase
   }
   public function confirmed()
   {
+    // order entry create in order table
+    $transaction = $this->conn->startTransaction();
+    try{
+      $data['uid'] =  $this->user;
+      $data['address'] = 'demo address will be set later';
+      $order_id = $this->conn->insert('orders')->fields($data)->execute();
+      $total = $this->calculateTotal(true,$order_id);
+
+      // updating the order total
+      $this->conn->update('orders')->fields(['total'=>$total])
+      ->condition('id', $order_id)->execute();
+
+      // make empty the user cart
+      $res = $this->conn->delete('cartmodule')
+      ->condition('uid', $this->user)
+      ->execute();
+    }
+    catch(Exception $e){
+      $transaction->rollBack();
+    }
+    unset($transaction);
+
+    // sending mail to user for about order confirmation
     $mailManager = \Drupal::service('plugin.manager.mail');
     $module = 'cartmodule';
     $key = 'order'; // Replace with Your key
     $to = \Drupal::currentUser()->getEmail();
-    $params['message'] = "Thanks for placing order. Your order tacking number is x33dfhd";
+    $params['message'] = "you have ordered books form our bookshop site. Your total amount of cost is: {$total}. Please pay on delivery";
     $params['title'] = "Your order has been placed";
     $langcode = \Drupal::currentUser()->getPreferredLangcode();
     $send = true;
     $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
-    $this->msg->addMessage('mail sent');
+    $this->msg->addMessage(' mail sent');
+    
+    // returning to the thank you page
     return [
     '#theme' => 'thanks',
     ];
