@@ -16,12 +16,12 @@ bundle: story_book
 mode: default
 content:
   body:
-    label: hidden
     type: text_textarea_with_summary
     weight: 101
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
+    label: hidden
   created:
     type: datetime_timestamp
     weight: 10
@@ -39,24 +39,24 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 15
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 120
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 16
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -69,11 +69,11 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 5
+    region: content
     settings:
       match_operator: CONTAINS
-      size: '60'
-      placeholder: ''
       match_limit: 10
-    region: content
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden: {  }
