@@ -1,0 +1,25 @@
+uuid: 0b3e0f12-6a11-48c0-9995-46d4211dbbd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_integer
+    - node.type.order_details
+id: node.order_details.field_integer
+field_name: field_integer
+entity_type: node
+bundle: order_details
+label: quantity
+description: 'this field will store quantity of that book with is added to this order'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

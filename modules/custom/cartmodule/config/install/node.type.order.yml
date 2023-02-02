@@ -1,0 +1,20 @@
+uuid: 3c70e91d-6144-4b2d-a057-a99df725f235
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: jJm5t_kcRNPE-6HPiSx-r0s97qhI4-itQC9247eQ1ic
+name: Order
+type: order
+description: 'All order will be under this content'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

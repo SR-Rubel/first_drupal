@@ -1,0 +1,23 @@
+uuid: a0d7dca2-09e8-4ea2-913e-d4f657070ef7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text
+    - node.type.order
+  module:
+    - text
+_core:
+  default_config_hash: eGQekQkb44ZjeTt4urNcrGuMgn5eEvI2pNUE-m_OFRM
+id: node.order.field_text
+field_name: field_text
+entity_type: node
+bundle: order
+label: 'shipping address'
+description: 'Enter address here'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,18 @@
+uuid: e3cb35da-de1d-40b2-bdd8-d10047ff1f6a
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Order Details'
+type: order_details
+description: 'This entity will hold the book entity and quantity of this book and it''s related to one order'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

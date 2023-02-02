@@ -1,0 +1,49 @@
+uuid: 4e13ea13-6cbf-4f38-b4b2-59eb63facb00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.order.field_order_details
+    - field.field.node.order.field_price
+    - field.field.node.order.field_text
+    - node.type.order
+  module:
+    - text
+    - user
+id: node.order.default
+targetEntityType: node
+bundle: order
+mode: default
+content:
+  field_order_details:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_price:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_text:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

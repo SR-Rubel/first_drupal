@@ -6,12 +6,24 @@
       </svg> <h1 class="badge badge-light">{{content.count}}</h1>
     </button>
     <div class ='dropdown-menu p-3' aria-labelledby ="dropdownMenuButton1">
-      {{content.items}}
+      {% if content.count %}
+        {{content.items}}
+        {% else %}
+        <h2>no items to show<h2>
+      {% endif %}
+      {% if content.count %}
         <a href={{path('custom.cartmodule.checkout')}}>
           <div class="btn btn-success w-100">
             Checkout
           </div>
         </a>
+        {% else %}
+        <a href="/">
+          <div class="btn btn-success w-100">
+            continue shopping
+          </div>
+        </a> 
+      {% endif %}
     </div>
   </div>
 </div>
