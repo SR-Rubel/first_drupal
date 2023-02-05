@@ -23,18 +23,18 @@ use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 
 class CartmoduleController extends ControllerBase implements ContainerInjectionInterface
 {
-  private $user; 
+  private $user;
   private $conn;
   private $msg;
   private $db;
-  
+
   protected $account;
   protected $mailManager;
   protected $block_manager;
 
   protected $render_service;
   protected $entityManager;
-  
+
   public function __construct(Connection $conn,AccountInterface $currentUser, MessengerInterface $msg,MailManagerInterface $mailManager, BlockManagerInterface $block_manager,RendererInterface $render_service,EntityTypeManagerInterface $entityManager)
   {
     $this->user = $currentUser;
@@ -119,12 +119,11 @@ class CartmoduleController extends ControllerBase implements ContainerInjectionI
       '#theme' => 'checkout',
       '#content' => ['books' => $render['#content']['items'],'total'=>$total_cost]
     ];
-    return $render['#content']['items'];
   }
   public function confirmed(Request $request)
   {
     $order = Node::create(['type' => 'order']);
-    
+
     $query = $this->db->select('cartmodule', 'c');
     $query->fields('c', ['book_id', 'quantity']);
     $query->condition('uid', $this->user->id());
@@ -136,7 +135,7 @@ class CartmoduleController extends ControllerBase implements ContainerInjectionI
       $node = Node::load($record->book_id);
       $book_price = $node->field_price->value;
       $total_cost += $book_price * $record->quantity;
-      
+
       $order_details = Node::create(['type' => 'order_details']);
       $order_details->field_books[] = $record->book_id;
       $order_details->field_integer = $record->quantity;

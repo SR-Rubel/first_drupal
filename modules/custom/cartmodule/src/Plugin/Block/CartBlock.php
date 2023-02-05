@@ -2,13 +2,13 @@
 
 namespace Drupal\cartmodule\Plugin\Block;
 
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 
 /**
  * @file
@@ -23,21 +23,28 @@ use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
  *  admin_label = @Translation("Cart Block")
  * )
  */
- class CartBlock extends BlockBase implements ContainerInjectionInterface{
+ class CartBlock extends BlockBase implements ContainerFactoryPluginInterface{
     /**
    * {@inherit}
    */
-  protected $db;
-  protected $render_service;
-  protected $entityManager;
-  public function __construct(Connection $conn,RendererInterface $render_service,EntityTypeManagerInterface $entityManager)
+  protected Connection $db;
+  protected RendererInterface $render_service;
+  protected EntityTypeManagerInterface $entityManager;
+  public function __construct(array $configuration, $plugin_id,$plugin_definition,Connection $conn,RendererInterface $render_service,EntityTypeManagerInterface $entityManager)
   {
+    parent::__construct($configuration,$plugin_id,$plugin_definition);
     $this->db = $conn;
     $this->render_service = $render_service;
     $this->entityManager = $entityManager;
   }
-  public static function create(ContainerInterface $container) {
+   /**
+    * {@inheritdoc}
+    */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
       $container->get('database'),
       $container->get('renderer'),
       $container->get('entity_type.manager')
