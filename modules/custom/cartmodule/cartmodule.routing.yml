@@ -30,3 +30,10 @@ custom.cartmodule.confirmed:
   requirements:
     _permission: 'access content'
     methods: "POST"
+custom.cartmodule.test:
+  path: '/test'
+  defaults:
+    _controller: '\Drupal\cartmodule\Controller\CartmoduleController::test'
+    _title: 'added to cart'
+  requirements:
+    _permission: 'access content'

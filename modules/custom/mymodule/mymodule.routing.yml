@@ -19,10 +19,3 @@ custom.mymodule.custom-twig:
     _title: 'A custom twig for rendering'
   requirements:
     _permission: 'access content'
-custom.mymodule.test:
-  path: '/test'
-  defaults:
-    _controller: '\Drupal\mymodule\Controller\MymoduleController::test'
-    _title: 'a custom node for testing purpose'
-  requirements:
-    _permission: 'access content'
