@@ -1,0 +1,4 @@
+services:
+  cartmodule.mail:
+    class: Drupal\cartmodule\Mail
+    arguments: ['@plugin.manager.mail','@current_user','@messenger']
