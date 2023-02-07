@@ -1,0 +1,54 @@
+uuid: 8f277cb3-e1d6-4161-a81d-bf4da04f0ae9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.order.field_order_details
+    - field.field.node.order.field_price
+    - field.field.node.order.field_text
+    - node.type.order
+  module:
+    - layout_builder
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: lHp948OfW5V-ISMQIhFyNoBdroOH3nxdyp4wx_lg5jI
+id: node.order.teaser
+targetEntityType: node
+bundle: order
+mode: teaser
+content:
+  field_order_details:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_price:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_text:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  links: true

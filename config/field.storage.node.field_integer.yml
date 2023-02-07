@@ -1,0 +1,22 @@
+uuid: f7b0fa37-3367-4cd7-b9fd-760113aca1e8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: CjaV2ZCxe81bNA63f7PMXEB9AjgQU0GBp6fJFz1wyMc
+id: node.field_integer
+field_name: field_integer
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

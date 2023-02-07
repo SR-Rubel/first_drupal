@@ -1,0 +1,12 @@
+uuid: 48482e8c-07ec-4bcf-a5e1-55af385c0358
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 36WIIgV3hMWpo9hXg9ogUNmhm_g4Wii0Wd2rhDua248
+id: node.cart_view
+label: 'Cat View'
+targetEntityType: node
+cache: true

@@ -1,0 +1,72 @@
+uuid: 4b94220e-b56b-4ffe-ba72-c3c016d5bcda
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.order_details.field_books
+    - field.field.node.order_details.field_integer
+    - node.type.order_details
+  module:
+    - path
+_core:
+  default_config_hash: ob3ErCuDRbprtvbazW6otKSIh4m5vHapW2N-vV6qXLE
+id: node.order_details.default
+targetEntityType: node
+bundle: order_details
+mode: default
+content:
+  field_books:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_integer:
+    type: number
+    weight: 6
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

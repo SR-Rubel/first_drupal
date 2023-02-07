@@ -1,0 +1,37 @@
+uuid: 95efd84c-3614-405d-8454-84462f8c48d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.order_details.field_books
+    - field.field.node.order_details.field_integer
+    - node.type.order_details
+  module:
+    - user
+_core:
+  default_config_hash: gpz9wosQ_bJ5df8u5xYIUb_MfvPL65B0yzPEuwQ48fA
+id: node.order_details.teaser
+targetEntityType: node
+bundle: order_details
+mode: teaser
+content:
+  field_books:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_integer:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  links: true

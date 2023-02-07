@@ -1,0 +1,31 @@
+uuid: ab7f4c31-5d51-4097-9162-f9618a03dafb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_books
+    - node.type.book
+    - node.type.order_details
+_core:
+  default_config_hash: N-ivWh3WRSW658irFkDzpfX2nwrQ7FvAQ74_K18cW08
+id: node.order_details.field_books
+field_name: field_books
+entity_type: node
+bundle: order_details
+label: book
+description: 'this field will store a book of certain order'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      book: book
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
