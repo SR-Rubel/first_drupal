@@ -16,31 +16,46 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 
 
- /**
+/**
  * provides a block with count of cart product
  * @Block(
  *  id = "cart_block",
  *  admin_label = @Translation("Cart Block")
  * )
  */
- class CartBlock extends BlockBase implements ContainerFactoryPluginInterface{
-    /**
-   * {@inherit}
+class CartBlock extends BlockBase implements ContainerFactoryPluginInterface
+{
+  /**
+   * @var Connection $db
    */
   protected Connection $db;
+  /**
+   * @var RendererInterface $render_service
+   */
   protected RendererInterface $render_service;
   protected EntityTypeManagerInterface $entityManager;
-  public function __construct(array $configuration, $plugin_id,$plugin_definition,Connection $conn,RendererInterface $render_service,EntityTypeManagerInterface $entityManager)
+
+  /**
+   * @param array $configuration
+   * @param string $plugin_id
+   * @param mixed $plugin_definition
+   * @param AccountInterface $account
+   * @param RendererInterface $render_service
+   * @param EntityTypeManagerInterface $entityManager
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, Connection $conn, RendererInterface $render_service, EntityTypeManagerInterface $entityManager)
   {
-    parent::__construct($configuration,$plugin_id,$plugin_definition);
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->db = $conn;
     $this->render_service = $render_service;
     $this->entityManager = $entityManager;
   }
-   /**
-    * {@inheritdoc}
-    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition)
+  {
     return new static(
       $configuration,
       $plugin_id,
@@ -50,10 +65,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
       $container->get('entity_type.manager')
     );
   }
+
   public function build()
   {
     // renderer service which is need to print array of render inside another render array
     $content = [];
+
     // counting how many product added to cart
     $query = $this->db->select('cartmodule', 't');
     $query->addExpression('SUM("quantity")');
@@ -84,9 +101,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
           '#value' => $record->quantity,
         ]
       ];
-      array_push($title_list,$wrapper);
+      array_push($title_list, $wrapper);
     }
-
 
 
     $items = [
@@ -110,4 +126,4 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
       ]
     ];
   }
- }
+}
