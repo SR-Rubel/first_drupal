@@ -25,15 +25,39 @@ class  OrderService
 
   public function placeOrder($request)
   {
+    // creating new order
     $order = Node::create(['type' => 'order']);
+    $order->title = 'order';
+    $order->field_text = $request->request->get('address');
+    $order->uid = $this->user->id();
+    $order = $this->CalculateTotal($order);
+    $order_res = $order->save();
 
+    // make empty the user cart
+    if ($order_res) {
+      $this->db->delete('cartmodule')
+        ->condition('uid', $this->user->id())
+        ->execute();
+    }
+    // sending mail to user after order
+    $key = 'order'; // Replace with Your key
+    $params['message'] = "Thanks for placing order. Your order tacking number is " . $order->id();
+    $params['title'] = "Your order has been placed";
+    $this->mail->sendMailToCurrentUser($params, $key);
+
+    return [
+      '#theme' => 'thanks',
+    ];
+  }
+
+  private function CalculateTotal($order)
+  {
     $query = $this->db->select('cartmodule', 'c');
     $query->fields('c', ['book_id', 'quantity']);
     $query->condition('uid', $this->user->id());
     $result = $query->execute();
     $total_cost = 0;
 
-    // creating order details for every product added to the cart
     foreach ($result as $record) {
       $node = Node::load($record->book_id);
       $book_price = $node->field_price->value;
@@ -46,31 +70,8 @@ class  OrderService
       $order_details->save();
       $order->field_order_details[] = ['target_id' => $order_details->id()];
     }
-    $order->title = 'order';
-    $order->field_text = $request->request->get('address');
+    // storing total
     $order->field_price = $total_cost;
-    $order->uid = $this->user->id();
-    $order_res = $order->save();
-
-    // make empty the user cart
-    if ($order_res) {
-      $res = $this->db->delete('cartmodule')
-        ->condition('uid', $this->user->id())
-        ->execute();
-    }
-    // sending mail to user after order
-    $key = 'order'; // Replace with Your key
-    $params['message'] = "Thanks for placing order. Your order tacking number is " . $order->id();
-    $params['title'] = "Your order has been placed";
-    $test = $this->mail->sendMailToCurrentUser($params, $key);
-
-    return [
-      '#theme' => 'thanks',
-    ];
-  }
-
-  private function CalculateTotal()
-  {
-
+    return $order;
   }
 }
