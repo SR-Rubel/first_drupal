@@ -21,15 +21,9 @@ class  CartService
     $this->db = $db;
     $this->messenger = $messenger;
   }
-  public function addToCart($request) : bool
+  public function addToCart($data) : bool
   {
-    $data = array(
-      'book_id' => $request->request->get('book_id'),
-      'quantity' => $request->request->get('quantity'),
-      'uid' => $this->user->id(),
-      'created' => time()
-    );
-
+    $data['uid'] = $this->user->id();
     // check weather data already exits in database
     $query = $this->db->select('cartmodule', 'c');
     $query->fields('c', ['quantity']);

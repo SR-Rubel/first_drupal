@@ -7,5 +7,4 @@ global-css-and-js:
      //cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css: {}
   js:
     //cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js: {}
-    //code.jquery.com/jquery-3.6.3.slim.min.js: {}
     js/app.js: {minified: true}

@@ -1,0 +1,7 @@
+cartmodule:
+  version: 1.0
+  js:
+    js/cartmodule.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
