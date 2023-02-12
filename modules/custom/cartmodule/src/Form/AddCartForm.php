@@ -3,9 +3,9 @@
 namespace Drupal\cartmodule\Form;
 
 use Drupal\cartmodule\CartService;
-use Drupal\Component\Plugin\PluginManagerInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\Core\Block\BlockManagerInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -27,11 +27,12 @@ class  AddCartForm extends FormBase implements ContainerInjectionInterface {
   protected CartService $cartService;
   protected CurrentPathStack $currentPathStack;
   protected AccountInterface $user;
-  protected PluginManagerInterface $pluginManager;
-  public function  __construct(CartService $cartService, CurrentPathStack $currentPathStack, AccountInterface $user,PluginManagerInterface $pluginManager){
+  protected BlockManagerInterface $blockManager;
+  public function  __construct(CartService $cartService, CurrentPathStack $currentPathStack, AccountInterface $user,BlockManagerInterface $blockManager){
     $this->cartService =  $cartService;
     $this->currentPathStack = $currentPathStack;
     $this->user = $user;
+    $this->blockManager = $blockManager;
   }
 
   public static function create(ContainerInterface $container) {
@@ -76,7 +77,7 @@ class  AddCartForm extends FormBase implements ContainerInjectionInterface {
     ];
     $this->cartService->addToCart($data);
 
-    $plugin_block = \Drupal::service('plugin.manager.block')->createInstance('cart_block');
+    $plugin_block = $this->blockManager->createInstance('cart_block');
     $render = $plugin_block->build();
 
     $response = new AjaxResponse();
