@@ -5,6 +5,7 @@ namespace Drupal\cartmodule;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Session\AccountProxyInterface;
 
 class Mail
 {
@@ -15,14 +16,14 @@ class Mail
   /**
    * @var AccountInterface $user
    */
-  private AccountInterface $user;
+  private AccountProxyInterface $user;
   private MessengerInterface $messenger;
 
   /**
    * @param MailManagerInterface $mailManager
-   * @param AccountInterface $currentUser
+   * @param AccountProxyInterface $currentUser
    */
-  public function __construct(MailManagerInterface $mailManager, AccountInterface $currentUser, MessengerInterface $messenger)
+  public function __construct(MailManagerInterface $mailManager, AccountProxyInterface $currentUser, MessengerInterface $messenger)
   {
     $this->mailManager = $mailManager;
     $this->user = $currentUser;
@@ -38,7 +39,7 @@ class Mail
   {
     $module = 'cartmodule';
     $to = $this->user->getEmail();
-    $name = $this->user->getAccount()->name;
+    $name = $this->user->getAccountName();
     $params['message'] = "hello $name !. ".$params['message'];
     $langcode = $this->user->getPreferredLangcode();
     $send = true;
