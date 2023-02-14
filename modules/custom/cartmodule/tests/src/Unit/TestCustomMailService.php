@@ -10,6 +10,12 @@ use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Tests\UnitTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
+/**
+ * Unit tests for the MyStatus utility class.
+ *
+ * @group cartmodule
+ */
+
 class TestCustomMailService extends UnitTestCase{
   protected Mail $mailService;
   protected MailManagerInterface|MockObject $mailManager;

@@ -24,23 +24,23 @@ class  CartService
   public function addToCart($data) : bool
   {
     $data['uid'] = $this->user->id();
-    // check weather data already exits in database
-    $query = $this->db->select('cartmodule', 'c');
-    $query->fields('c', ['quantity']);
-    $query->condition('book_id', $data['book_id']);
-    $query->condition('uid', $data['uid']);
-    $result = $query->execute()->fetchField();
-
-    if ($result) {
-      $this->db->update('cartmodule')->fields(['quantity' => $result + $data['quantity']])
-        ->condition('book_id', $data['book_id'])
-        ->condition('uid', $data['uid'])
-        ->execute();
-      $this->messenger->addMessage('Added to the previous item');
-    } else {
+//    // check weather data already exits in database
+//    $query = $this->db->select('cartmodule', 'c');
+//    $query->fields('c', ['quantity']);
+//    $query->condition('book_id', $data['book_id']);
+//    $query->condition('uid', $data['uid']);
+//    $result = $query->execute()->fetchField();
+//
+//    if ($result) {
+//      $this->db->update('cartmodule')->fields(['quantity' => $result + $data['quantity']])
+//        ->condition('book_id', $data['book_id'])
+//        ->condition('uid', $data['uid'])
+//        ->execute();
+//      $this->messenger->addMessage('Added to the previous item');
+//    } else {
       $this->db->insert('cartmodule')->fields($data)->execute();
       $this->messenger->addMessage('book added to the cart');
-    }
+//    }
     return true;
   }
 

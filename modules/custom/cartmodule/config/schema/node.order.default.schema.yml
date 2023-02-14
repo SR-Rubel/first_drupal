@@ -1,0 +1,49 @@
+# schema/config/node.order.default.schema.yml
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.order.field_order_details
+    - field.field.node.order.field_price
+    - field.field.node.order.field_text
+    - node.type.order
+  module:
+    - text
+type: view_mode
+label: 'Default view mode for the Order content type'
+mapping:
+  created:
+    type: datetime_timestamp
+    label: 'Created'
+  field_order_details:
+    type: entity_reference
+    label: 'Order Details'
+  field_price:
+    type: decimal
+    label: 'Price'
+  field_text:
+    type: string
+    label: 'Text'
+  status:
+    type: boolean
+    label: 'Status'
+  title:
+    type: string
+    label: 'Title'
+  hidden:
+    type: mapping
+    label: 'Hidden'
+    mapping:
+      path:
+        type: boolean
+        label: 'Path'
+      promote:
+        type: boolean
+        label: 'Promote'
+      sticky:
+        type: boolean
+        label: 'Sticky'
+      uid:
+        type: boolean
+        label: 'Uid'
