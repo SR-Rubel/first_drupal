@@ -7,6 +7,12 @@ config:
   config:
     php: .lando.php.ini
 services:
+  appserver:
+    overrides:
+      environment:
+        SIMPLETEST_BASE_URL: "http://localhost/"
+        SIMPLETEST_DB: "mysql://drupal9:drupal9@database/drupal9"
+        BROWSERTEST_OUTPUT_DIRECTORY: "./sites/simpletest"
   pma:
     type: phpmyadmin
     hosts:
@@ -24,6 +30,10 @@ services:
     portforward: true
     hogfrom:
       - appserver
+tooling:
+  test:
+    service: appserver
+    cmd: "php ./vendor/bin/phpunit --verbose -c ./phpunit.xml"
 proxy:
   phpmyadmin:
     - phpmyadmin.api_practice.lndo.site

@@ -33,7 +33,7 @@
     <!-- Example SIMPLETEST_DB value: mysql://username:password@localhost/databasename#table_prefix -->
     <env name="SIMPLETEST_DB" value="mysql://drupal9:drupal9@database/drupal9"/>
     <!-- Example BROWSERTEST_OUTPUT_DIRECTORY value: /path/to/webroot/sites/simpletest/browser_output -->
-    <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="/Users/rubeluddin/Desktop/practice/api_practice/sites/simpletest"/>
+    <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="./sites/simpletest"/>
     <!-- To have browsertest output use an alternative base URL. For example if
      SIMPLETEST_BASE_URL is an internal DDEV URL, you can set this to the
      external DDev URL so you can follow the links directly.
