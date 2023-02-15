@@ -48,12 +48,12 @@ class CartmoduleController extends ControllerBase implements ContainerInjectionI
   public function addToCart(Request $request)
   {
     $data =  [
-      'book_id' => $request->request->get('book_id'),
-      'quantity' => $request->request->get('quantity'),
-      'created' => time()
+      'book_id' => $request->get('book_id'),
+      'quantity' => $request->get('quantity'),
+//      'created' => time()
     ];
     $this->cartService->addToCart($data);
-    return $this->redirect('entity.node.canonical', ['node' => $request->request->get('book_id')]);
+//    return $this->redirect('entity.node.canonical', ['node' => $request->get('book_id')]);
   }
 
   public function deleteFromCart(Request $request)
