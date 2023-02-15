@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\Kernel;
 
+use Drupal;
 use Drupal\KernelTests\KernelTestBase;
 
 use Drupal\Core\Database\Connection;
@@ -11,84 +12,80 @@ use Drupal\cartmodule\CartService;
 
 class CartServiceTest extends KernelTestBase {
 
-  protected static $modules  = [
+  protected static $modules = [
     'cartmodule',
   ];
-  /**
-   * The database connection.
-   *
-   * @var \Drupal\Core\Database\Connection
-   */
-  protected Connection $database;
 
-  /**
-   * A user object.
-   *
-   * @var \Drupal\user\Entity\User
-   */
+  protected Connection $db;
+
   protected AccountInterface $user;
 
-  /**
-   * The messenger object.
-   *
-   * @var \Drupal\Core\Messenger\MessengerInterface
-   */
   protected MessengerInterface $messenger;
 
-  /**
-   * The CartService object.
-   *
-   * @var \Drupal\cartmodule\CartService
-   */
   protected CartService $cartService;
+
+
+  protected int $book_id;
+
+  protected int $quantity;
+
+  protected array $data;
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp() : void
-  {
+  protected function setUp(): void {
     parent::setUp();
-//    $this->installConfig(['mymodule']);
-    $this->installSchema('cartmodule', ['cartmodule','cartmodule_enabled']);
-    $this->database = \Drupal::database();
-    $this->user = \Drupal::currentUser();
-    $this->messenger = \Drupal::messenger();
-    $this->cartService = new CartService($this->user, $this->database, $this->messenger);
+    $this->installSchema('cartmodule', ['cartmodule', 'cartmodule_enabled']);
+    $this->db = Drupal::database();
+    $this->user = Drupal::currentUser();
+    $this->messenger = Drupal::messenger();
+    $this->cartService = new CartService($this->user, $this->db, $this->messenger);
+
+    // setting data
+    $this->book_id = 1;
+    $this->quantity = 2;
+    $this->data = [
+      'book_id' => $this->book_id,
+      'quantity' => $this->quantity,
+    ];
   }
 
   /**
    * Test the addToCart method.
    */
   public function testAddToCart() {
-    $book_id = 1;
-    $quantity = 2;
-    $data = [
-      'book_id' => $book_id,
-      'quantity' => $quantity,
-    ];
-
     // Test adding a new book to the cart.
-    $this->assertTrue($this->cartService->addToCart($data));
-    //    $result = $this->database->select('cartmodule', 'c')
-    //      ->fields('c', ['quantity'])
-    //      ->condition('book_id', $book_id)
-    //      ->condition('uid', $this->user->id())
-    //      ->execute()
-    //      ->fetchField();
-    //    $this->assertEquals($result, $quantity);
-    //
-    //    // Test adding the same book to the cart again.
-    //    $quantity = 3;
-    //    $data = [
-    //      'book_id' => $book_id,
-    //      'quantity' => $quantity,
-    //    ];
-    //    $this->assertTrue($this->cartService->addToCart($data));
-    //    $result = $this->database->select('cartmodule', 'c')
-    //      ->fields('c', ['quantity'])
-    //      ->condition('book_id', $book_id)
-    //      ->condition('uid', $this->user->id())
-    //      ->execute()
-    //      ->fetchField();
+    $this->assertTrue($this->cartService->addToCart($this->data));
+    $resultQuantityPrev = $this->getQuantity($this->book_id);
+    $this->assertEquals($resultQuantityPrev, $this->quantity);
+
+    // Test adding the same book to the cart again.
+    $quantity = 3;
+    $this->data['quantity'] = $quantity;
+    $this->assertTrue($this->cartService->addToCart($this->data));
+
+    // Test for checking same item quantity added to previous or not
+    $resultQuantity = $this->getQuantity($this->book_id);
+    $this->assertEquals($quantity + $resultQuantityPrev, $resultQuantity);
+  }
+
+  public function getQuantity($book_id) {
+    return $this->db->select('cartmodule', 'c')
+      ->fields('c', ['quantity'])
+      ->condition('book_id', $book_id)
+      ->condition('uid', $this->user->id())
+      ->execute()
+      ->fetchField();
+  }
+
+  public function testDeleteFromCart() {
+    // Test adding a new book to the cart.
+    $this->assertTrue($this->cartService->addToCart($this->data));
+    $result = $this->db->delete('cartmodule')
+      ->condition('book_id', $this->book_id)
+      ->condition('uid', $this->user->id())
+      ->execute();
+    $this->assertEquals(1, $result);
   }
 }

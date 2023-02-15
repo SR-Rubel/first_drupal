@@ -107,27 +107,6 @@ class CartServiceTest extends BrowserTestBase {
 
     // Test adding a new book to the cart.
     $this->assertTrue($this->cartService->addToCart($data));
-//    $result = $this->database->select('cartmodule', 'c')
-//      ->fields('c', ['quantity'])
-//      ->condition('book_id', $book_id)
-//      ->condition('uid', $this->user->id())
-//      ->execute()
-//      ->fetchField();
-//    $this->assertEquals($result, $quantity);
-//
-//    // Test adding the same book to the cart again.
-//    $quantity = 3;
-//    $data = [
-//      'book_id' => $book_id,
-//      'quantity' => $quantity,
-//    ];
-//    $this->assertTrue($this->cartService->addToCart($data));
-//    $result = $this->database->select('cartmodule', 'c')
-//      ->fields('c', ['quantity'])
-//      ->condition('book_id', $book_id)
-//      ->condition('uid', $this->user->id())
-//      ->execute()
-//      ->fetchField();
   }
 }
 
