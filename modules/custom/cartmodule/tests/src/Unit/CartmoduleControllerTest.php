@@ -8,9 +8,9 @@ use Drupal\cartmodule\Controller\CartmoduleController;
 use Drupal\cartmodule\OrderService;
 use Drupal\Tests\UnitTestCase;
 use Hoa\Iterator\Mock;
+use Laminas\Diactoros\Response\RedirectResponse;
 use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -23,6 +23,8 @@ class CartmoduleControllerTest extends UnitTestCase {
   protected CheckoutService|MockObject $checkoutService;
 
   protected CartmoduleController $cartmoduleController;
+
+  protected CartmoduleController $controller;
 
   protected Request|MockObject $request;
 
@@ -38,6 +40,7 @@ class CartmoduleControllerTest extends UnitTestCase {
 
     $this->container = $this->createMock(ContainerInterface::class);
 
+
     $this->container->expects($this->any())
       ->method('get')
       ->withConsecutive(
@@ -46,6 +49,8 @@ class CartmoduleControllerTest extends UnitTestCase {
         ['cartmodule.CheckoutService']
       )
       ->willReturn($this->orderService, $this->cartService, $this->checkoutService);
+
+    $this->controller =  $this->createMock(CartmoduleController::class);
 
     //    $this->request->request = $this->createMock(ParameterBag::class);
     $this->cartmoduleController = CartmoduleController::create($this->container);
@@ -63,6 +68,14 @@ class CartmoduleControllerTest extends UnitTestCase {
     $this->cartService->expects($this->once())
       ->method('addToCart')
       ->with($this->data);
+
+    $this->controller->expects($this->once())
+      ->method('redirect')
+      ->with(
+        $this->equalTo('entity.node.canonical'),
+        $this->equalTo(['node' => $this->data['book_id']])
+      )
+      ->willReturn(new RedirectResponse('/node/' .  $this->data['book_id']));
 
     $this->cartmoduleController->addToCart($this->request);
   }

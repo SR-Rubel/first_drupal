@@ -35,7 +35,6 @@ use Drupal\Core\Database\Connection;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Tests\BrowserTestBase;
-use Drupal\user\Entity\User;
 use Drupal\cartmodule\CartService;
 
 /**
