@@ -3,7 +3,7 @@
 namespace Drupal\cartmodule;
 use Drupal\Core\Block\BlockManagerInterface;
 use Drupal\Core\Database\Connection;
-use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\node\Entity\Node;
 
 /**
@@ -13,9 +13,9 @@ use Drupal\node\Entity\Node;
 class  CheckoutService
 {
   protected Connection $db;
-  protected AccountInterface $user;
+  protected AccountProxyInterface $user;
   protected BlockManagerInterface $blockManager;
-  public function __construct(Connection $db,AccountInterface $user,BlockManagerInterface $blockManager)
+  public function __construct(Connection $db,AccountProxyInterface $user,BlockManagerInterface $blockManager)
   {
     $this->db = $db;
     $this->user = $user;
