@@ -17,6 +17,7 @@ class OrderServiceTest extends KernelTestBase {
 
   protected static $modules = [
     'cartmodule',
+    'node',
     'user'
   ];
 
@@ -38,22 +39,12 @@ class OrderServiceTest extends KernelTestBase {
   protected function setUp(): void {
     parent::setUp();
     $this->installSchema('cartmodule', ['cartmodule', 'cartmodule_enabled']);
+    $this->installEntitySchema('node');
+    $this->installEntitySchema('user');
     $this->user = Drupal::currentUser();
     $this->messenger = Drupal::messenger();
     $this->db = Drupal::database();
     $this->orderService = Drupal::service('cartmodule.OrderService');
-
-
-//    $user = User::create([
-//      'name' => 'testuser',
-//      'mail' => 'testuser@example.com',
-//      'status' => 1,
-//    ]);
-//    $user->save();
-//
-//    // Log in as the created user.
-//    $this->container->get('session')->set('uid', $user->id());
-//    $this->container->get('session')->set('testsession', TRUE);
 
     // setting data
     $this->book_id = 1;
@@ -72,7 +63,7 @@ class OrderServiceTest extends KernelTestBase {
     $order->title = 'order';
     $order->field_text = 'demo address';
     $order->uid = $this->user->id();
-    $order =233;
+    $order->field_price =233;
     $order_res = $order->save();
     $this->assertEquals(TRUE,(bool)$order_res);
   }
